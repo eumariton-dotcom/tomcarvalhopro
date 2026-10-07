@@ -1,0 +1,47 @@
+/* Tom Carvalho — funil de live semanal · base */
+:root{
+  --bg:#0E1B2E;        /* azul-tinta profundo */
+  --bg-2:#13243C;      /* superfície */
+  --line:#24395A;      /* linhas de painel */
+  --ink:#EEF2F7;       /* texto */
+  --ink-2:#A7B3C4;     /* texto secundário */
+  --amber:#F2B23E;     /* acento único */
+  --amber-ink:#1A1405; /* texto sobre âmbar */
+  --max:1080px;
+  --radius:6px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-.015em;font-weight:700}
+h1{font-size:clamp(2rem,5.2vw,3.6rem);font-weight:800}
+h2{font-size:clamp(1.5rem,3.2vw,2.2rem)}
+h3{font-size:1.15rem}
+p{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.sec{padding:72px 0;border-top:1px solid var(--line)}
+.sec .wrap > * + *{margin-top:20px}
+.muted{color:var(--ink-2)}
+.lead{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:60ch;color:var(--ink-2)}
+.measure{max-width:62ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:54px;padding:0 28px;border:0;border-radius:var(--radius);background:var(--amber);color:var(--amber-ink);font:inherit;font-weight:700;font-size:1.05rem;text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.06)}
+.btn:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.btn[disabled]{opacity:.6;cursor:default}
+.btn.wide{width:100%}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.field{display:block}
+.field + .field{margin-top:14px}
+.field span{display:block;font-size:.9rem;color:var(--ink-2);margin-bottom:6px}
+input[type=text],input[type=email],input[type=tel]{width:100%;min-height:54px;padding:0 16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-2);color:var(--ink);font:inherit;font-size:1.05rem}
+input::placeholder{color:#6F7E95}
+.err{display:none;margin-top:6px;font-size:.9rem;color:var(--amber)}
+.field.bad .err{display:block}
+.field.bad input{border-color:var(--amber)}
+.fine{font-size:.9rem;color:var(--ink-2)}
+.panel{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.center{text-align:center}
+.foot{padding:40px 0;border-top:1px solid var(--line);font-size:.9rem;color:var(--ink-2)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (max-width:640px){.sec{padding:52px 0}}
