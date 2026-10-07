@@ -190,7 +190,7 @@
 const CONFIG = {
   DIA_HORA: '[DIA] às [HORA]',                       // ex.: 'Quarta, 15/10, às 20h'
   WEBHOOK:  'https://n8n-n8n.mchvfo.easypanel.host/webhook/captura-lead',
-  OBRIGADO: 'obrigado.html'
+  PROXIMA:  'pesquisa.html'   // depois do cadastro: pesquisa de 5 cliques → link do grupo
 };
 // =======================================
 document.querySelectorAll('[data-dia-hora]').forEach(el => el.textContent = CONFIG.DIA_HORA);
@@ -219,14 +219,15 @@ form.addEventListener('submit', async (e) => {
 
   btn.disabled = true; btn.textContent = 'Entrando…';
   const payload = { nome, email, telefone: tel, ...utm };
-  try { localStorage.setItem('tc_lead', JSON.stringify({ nome, email, t: Date.now() })); } catch(e){}
+  try { localStorage.setItem('tc_lead', JSON.stringify({ nome, email, telefone: tel, t: Date.now() })); } catch(e){}
   try {
     const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 6000);
     await fetch(CONFIG.WEBHOOK, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload), signal: ctrl.signal });
     clearTimeout(t);
   } catch(e) { /* não trava o lead */ }
   if (typeof fbq === 'function') fbq('track', 'Lead');
-  location.href = CONFIG.OBRIGADO + '?n=' + encodeURIComponent(nome.split(' ')[0]);
+  const p = new URLSearchParams({ n: nome, e: email, t: tel, ...utm });
+  location.href = CONFIG.PROXIMA + '?' + p.toString();
 });
 </script>
 <!-- PIXEL META: cole aqui o código base do pixel quando tiver -->

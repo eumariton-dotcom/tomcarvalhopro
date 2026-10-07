@@ -3,125 +3,178 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pesquisa — Live do Tom Carvalho</title>
+<title>Quase lá — Live do Tom Carvalho</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/base.css">
 <style>
-body{padding:40px 0 80px}
-.box{width:min(600px,calc(100% - 40px));margin:0 auto}
-.box > * + *{margin-top:18px}
-.brand{font-size:.9rem;color:var(--ink-2);font-weight:500}
-h1{font-size:clamp(1.7rem,4.5vw,2.4rem)}
-fieldset{border:0;padding:0;margin:26px 0 0}
-legend{font-weight:700;font-size:1.05rem;margin-bottom:10px;padding:0}
-.opts{display:grid;gap:8px}
-.opts label{display:flex;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-2);cursor:pointer}
-.opts label:has(input:checked){border-color:var(--amber)}
-.opts input{accent-color:var(--amber);width:18px;height:18px;margin:0;flex:none}
-.opts .err{margin-top:2px}
-fieldset.bad .err{display:block}
-#done{display:none}
+html,body{height:100%}
+body{display:flex;flex-direction:column}
+.top{border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;min-height:48px;font-size:.95rem;color:var(--ink-2)}
+.top b{color:var(--ink);font-weight:600}
+.bar{height:3px;background:var(--line)}
+.bar i{display:block;height:100%;width:0;background:var(--amber);transition:width .35s ease}
+main{flex:1;display:grid;place-items:center;padding:32px 0 48px}
+.card{width:min(560px,calc(100% - 40px))}
+.card > * + *{margin-top:16px}
+.step{color:var(--ink-2);font-size:.9rem}
+h1{font-size:clamp(1.55rem,4.2vw,2.2rem)}
+.opts{display:grid;gap:10px;margin-top:22px}
+.opt{display:flex;align-items:center;gap:14px;width:100%;min-height:56px;padding:14px 18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-2);color:var(--ink);font:inherit;font-size:1.02rem;text-align:left;cursor:pointer}
+.opt:hover{border-color:var(--amber)}
+.opt.on{border-color:var(--amber);background:#1A2D47}
+.opt .k{flex:none;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:.8rem;color:var(--ink-2)}
+.opt.on .k{background:var(--amber);color:var(--amber-ink);border-color:var(--amber)}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:26px}
+.back{background:none;border:0;color:var(--ink-2);font:inherit;font-size:.95rem;cursor:pointer;padding:8px 0}
+.back:hover{color:var(--ink)}
+.hide{display:none}
+.screen{animation:in .25s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.screen{animation:none}}
+.done h1{font-size:clamp(1.8rem,4.5vw,2.6rem)}
+.small{font-size:.85rem;color:var(--ink-2);word-break:break-all}
 </style>
 </head>
 <body>
-<main class="box">
-  <div id="ask">
-    <p class="brand">Tom Carvalho · Funil de live semanal</p>
-    <h1>Me conta rapidinho sobre o seu negócio</h1>
-    <p class="muted">6 perguntas, menos de 1 minuto. Isso me ajuda a trazer exemplos do seu tipo de negócio na aula.</p>
-    <form id="form" novalidate>
-      <label class="field"><span>E-mail (o mesmo da inscrição)</span><input type="email" name="email" autocomplete="email" inputmode="email" placeholder="voce@email.com" required><em class="err">Digite um e-mail válido.</em></label>
+<div class="top"><div class="wrap"><b>Aula ao vivo</b><span id="stepTop"></span></div></div>
+<div class="bar"><i id="bar"></i></div>
 
-      <fieldset data-name="segmento"><legend>O que você vende?</legend><div class="opts">
-        <label><input type="radio" name="segmento" value="Serviço ou agência">Serviço ou agência</label>
-        <label><input type="radio" name="segmento" value="Mentoria ou curso">Mentoria ou curso</label>
-        <label><input type="radio" name="segmento" value="Franquia ou B2B">Franquia ou B2B</label>
-        <label><input type="radio" name="segmento" value="Outro">Outro</label>
-      </div><em class="err">Escolha uma opção.</em></fieldset>
+<main><div class="card">
 
-      <fieldset data-name="faturamento"><legend>Quanto seu negócio fatura por mês hoje?</legend><div class="opts">
-        <label><input type="radio" name="faturamento" value="Até 10 mil">Até 10 mil</label>
-        <label><input type="radio" name="faturamento" value="10 a 20 mil">10 a 20 mil</label>
-        <label><input type="radio" name="faturamento" value="20 a 50 mil">20 a 50 mil</label>
-        <label><input type="radio" name="faturamento" value="50 a 100 mil">50 a 100 mil</label>
-        <label><input type="radio" name="faturamento" value="Acima de 100 mil">Acima de 100 mil</label>
-      </div><em class="err">Escolha uma opção.</em></fieldset>
-
-      <fieldset data-name="ticket"><legend>Quanto custa, em média, o que você vende?</legend><div class="opts">
-        <label><input type="radio" name="ticket" value="Até 1 mil">Até 1 mil</label>
-        <label><input type="radio" name="ticket" value="1 a 3 mil">1 a 3 mil</label>
-        <label><input type="radio" name="ticket" value="3 a 5 mil">3 a 5 mil</label>
-        <label><input type="radio" name="ticket" value="5 a 10 mil">5 a 10 mil</label>
-        <label><input type="radio" name="ticket" value="Acima de 10 mil">Acima de 10 mil</label>
-      </div><em class="err">Escolha uma opção.</em></fieldset>
-
-      <fieldset data-name="dificuldade"><legend>Qual a sua maior dificuldade para fechar clientes hoje?</legend><div class="opts">
-        <label><input type="radio" name="dificuldade" value="Não sei quantas reuniões vou ter na semana">Não sei quantas reuniões vou ter na semana</label>
-        <label><input type="radio" name="dificuldade" value="Dependo de indicação">Dependo de indicação</label>
-        <label><input type="radio" name="dificuldade" value="Marco reunião e a pessoa não aparece">Marco reunião e a pessoa não aparece</label>
-        <label><input type="radio" name="dificuldade" value="Faço reunião e não fecho">Faço reunião e não fecho</label>
-        <label><input type="radio" name="dificuldade" value="Lead chega frio ou pechincha">Lead chega frio ou pechincha</label>
-        <label><input type="radio" name="dificuldade" value="Outro">Outro</label>
-      </div><em class="err">Escolha uma opção.</em></fieldset>
-
-      <fieldset data-name="verba"><legend>Quanto você pode investir em anúncio por mês?</legend><div class="opts">
-        <label><input type="radio" name="verba" value="Menos de 1.500">Menos de 1.500</label>
-        <label><input type="radio" name="verba" value="1.500 a 3.000">1.500 a 3.000</label>
-        <label><input type="radio" name="verba" value="3.000 a 5.000">3.000 a 5.000</label>
-        <label><input type="radio" name="verba" value="Acima de 5.000">Acima de 5.000</label>
-      </div><em class="err">Escolha uma opção.</em></fieldset>
-
-      <fieldset data-name="lives_assistidas"><legend>Quantas lives minhas você já assistiu?</legend><div class="opts">
-        <label><input type="radio" name="lives_assistidas" value="0">Nenhuma, essa é a primeira</label>
-        <label><input type="radio" name="lives_assistidas" value="1">1</label>
-        <label><input type="radio" name="lives_assistidas" value="2">2</label>
-        <label><input type="radio" name="lives_assistidas" value="3 ou mais">3 ou mais</label>
-      </div><em class="err">Escolha uma opção.</em></fieldset>
-
-      <button class="btn wide" type="submit" id="btn" style="margin-top:26px">Enviar respostas</button>
+  <!-- 0: dados (só se não vier pela URL) -->
+  <section id="s-dados" class="screen hide">
+    <p class="step">Antes de começar</p>
+    <h1>Seus dados para receber o link da aula</h1>
+    <form id="f-dados" novalidate style="margin-top:22px">
+      <label class="field"><span>Nome</span><input type="text" name="nome" autocomplete="name" placeholder="Seu nome" required><em class="err">Digite seu nome.</em></label>
+      <label class="field"><span>E-mail</span><input type="email" name="email" autocomplete="email" inputmode="email" placeholder="voce@email.com" required><em class="err">Digite um e-mail válido.</em></label>
+      <label class="field"><span>WhatsApp</span><input type="tel" name="telefone" autocomplete="tel" inputmode="tel" placeholder="(21) 99999-9999" required><em class="err">Digite seu WhatsApp com DDD.</em></label>
+      <button class="btn wide" type="submit" style="margin-top:18px">Continuar</button>
     </form>
-  </div>
-  <div id="done">
-    <p class="brand">Tom Carvalho · Funil de live semanal</p>
-    <h1>Recebido. Obrigado!</h1>
-    <p class="muted">Te vejo na aula. O link chega no grupo do WhatsApp.</p>
-  </div>
-</main>
+  </section>
+
+  <!-- 1..5: perguntas (montadas por JS) -->
+  <section id="s-q" class="screen hide">
+    <p class="step" id="qStep"></p>
+    <h1 id="qTitle"></h1>
+    <p class="muted" id="qHint"></p>
+    <div class="opts" id="qOpts"></div>
+    <div class="nav"><button class="back" id="back" type="button">← Voltar</button><span class="small" id="qTip">Toque numa opção para avançar</span></div>
+  </section>
+
+  <!-- fim -->
+  <section id="s-fim" class="screen hide done">
+    <p class="step">Pronto<span id="fimNome"></span></p>
+    <h1>Último passo: entre no grupo do WhatsApp</h1>
+    <p class="lead">É por lá que chega o link da aula, o lembrete no dia e o material. Sem o grupo, você não recebe nada.</p>
+    <p><a class="btn wide" id="grupo" href="#">Entrar no grupo do WhatsApp</a></p>
+    <p class="small">Se o botão não abrir, copie o link: <span id="grupoTxt"></span></p>
+  </section>
+
+</div></main>
+
 <script>
 // ====== CONFIGURAÇÃO — edite aqui ======
-const WEBHOOK = 'https://n8n-n8n.mchvfo.easypanel.host/webhook/pesquisa-lead';
+const WEBHOOK_CAPTURA  = 'https://n8n-n8n.mchvfo.easypanel.host/webhook/captura-lead';
+const WEBHOOK_PESQUISA = 'https://n8n-n8n.mchvfo.easypanel.host/webhook/pesquisa-lead';
+const GRUPO_URL_RESERVA = 'https://chat.whatsapp.com/COLE-O-LINK-DO-GRUPO'; // usado se o n8n não responder (o oficial está na aba Config da planilha)
 // =======================================
-const qs = new URLSearchParams(location.search);
-const form = document.getElementById('form'), btn = document.getElementById('btn');
-let saved = {}; try { saved = JSON.parse(localStorage.getItem('tc_lead') || '{}'); } catch(e){}
-form.email.value = qs.get('e') || saved.email || '';
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  let valid = true;
-  const email = form.email.value.trim().toLowerCase();
-  const fe = form.email.closest('.field');
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { fe.classList.add('bad'); valid = false; } else fe.classList.remove('bad');
-  const data = { email };
-  document.querySelectorAll('fieldset').forEach(fs => {
-    const name = fs.dataset.name, v = form.querySelector(`input[name="${name}"]:checked`);
-    fs.classList.toggle('bad', !v);
-    if (!v) valid = false; else data[name] = v.value;
-  });
-  if (!valid) { document.querySelector('.bad').scrollIntoView({ block: 'center' }); return; }
-  btn.disabled = true; btn.textContent = 'Enviando…';
-  try {
-    const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 6000);
-    await fetch(WEBHOOK, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data), signal: ctrl.signal });
-    clearTimeout(t);
-  } catch(e) {}
-  document.getElementById('ask').style.display = 'none';
-  document.getElementById('done').style.display = 'block';
-  window.scrollTo(0, 0);
+const PERGUNTAS = [
+  { k:'oferta', t:'O que você vende e por quanto?', h:'Escolha o que mais se parece com o seu principal produto.', o:[
+    'Serviço recorrente até R$ 2 mil','Serviço recorrente acima de R$ 2 mil','Mentoria/consultoria até R$ 5 mil','Mentoria/consultoria acima de R$ 5 mil','Curso/imersão acima de R$ 2 mil','Franquia/B2B acima de R$ 20 mil','Produto/curso abaixo de R$ 500'] },
+  { k:'origem_reunioes', t:'Hoje, de onde vem a maioria das suas reuniões de venda?', h:'', o:[
+    'Indicação','Prospecção ativa','Conteúdo orgânico','Anúncio direto para reunião','Lançamento','Ainda não faço reuniões'] },
+  { k:'reunioes_30d', t:'Quantas reuniões de venda você fez nos últimos 30 dias?', h:'Chute se não souber o número exato.', o:[
+    '0','1 a 4','5 a 10','11 a 20','Mais de 20'] },
+  { k:'problema_reunioes', t:'Nessas reuniões, o que mais acontece?', h:'', o:[
+    'A pessoa não aparece','Aparece, mas não decide','Pede desconto / compara','Fecha, mas são poucas','Não sei dizer'] },
+  { k:'faturamento', t:'Quanto o seu negócio fatura por mês hoje?', h:'Fica só entre nós. É para eu trazer exemplos do seu tamanho na aula.', o:[
+    'Até R$ 10 mil','R$ 10 a 30 mil','R$ 30 a 60 mil','R$ 60 a 100 mil','R$ 100 a 300 mil','Acima de R$ 300 mil'] },
+];
+const TOTAL = PERGUNTAS.length;
+
+const qs = new URLSearchParams(location.search);
+let saved = {}; try { saved = JSON.parse(localStorage.getItem('tc_lead') || '{}'); } catch(e){}
+const lead = {
+  nome:  (qs.get('n') || saved.nome || '').trim(),
+  email: (qs.get('e') || saved.email || '').trim().toLowerCase(),
+  telefone: (qs.get('t') || saved.telefone || '').replace(/\D/g,''),
+};
+const utm = {};
+['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => {
+  const v = qs.get(k); if (v) utm[k] = v; else { try { const s = sessionStorage.getItem(k); if (s) utm[k] = s; } catch(e){} }
 });
+const resp = {};
+let i = 0;
+
+const $ = id => document.getElementById(id);
+const show = id => { ['s-dados','s-q','s-fim'].forEach(s => $(s).classList.add('hide')); const el = $(id); el.classList.remove('hide'); el.classList.remove('screen'); void el.offsetWidth; el.classList.add('screen'); window.scrollTo(0,0); };
+const progress = (n) => { $('bar').style.width = Math.round(n / (TOTAL + 1) * 100) + '%'; $('stepTop').textContent = n <= TOTAL ? `${n} de ${TOTAL}` : ''; };
+
+function render() {
+  const q = PERGUNTAS[i];
+  $('qStep').textContent = `Pergunta ${i + 1} de ${TOTAL}`;
+  $('qTitle').textContent = q.t;
+  $('qHint').textContent = q.h; $('qHint').style.display = q.h ? '' : 'none';
+  const box = $('qOpts'); box.innerHTML = '';
+  q.o.forEach((txt, n) => {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'opt' + (resp[q.k] === txt ? ' on' : '');
+    b.innerHTML = `<span class="k">${n + 1}</span><span>${txt}</span>`;
+    b.addEventListener('click', () => { resp[q.k] = txt; b.classList.add('on'); setTimeout(next, 180); });
+    box.appendChild(b);
+  });
+  $('back').style.visibility = i === 0 ? 'hidden' : 'visible';
+  progress(i + 1);
+  show('s-q');
+}
+function next() { if (i < TOTAL - 1) { i++; render(); } else finish(); }
+$('back').addEventListener('click', () => { if (i > 0) { i--; render(); } });
+document.addEventListener('keydown', (e) => {
+  if ($('s-q').classList.contains('hide')) return;
+  const n = parseInt(e.key, 10); const btns = $('qOpts').querySelectorAll('.opt');
+  if (n >= 1 && n <= btns.length) btns[n - 1].click();
+});
+
+async function post(url, body) {
+  const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 6000);
+  try { const r = await fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: ctrl.signal }); clearTimeout(t); return await r.json(); }
+  catch(e) { return null; }
+}
+
+async function finish() {
+  progress(TOTAL + 1);
+  const r = await post(WEBHOOK_PESQUISA, { email: lead.email, ...resp });
+  const url = (r && r.grupo_url) ? r.grupo_url : GRUPO_URL_RESERVA;
+  $('grupo').href = url; $('grupoTxt').textContent = url;
+  if (lead.nome) $('fimNome').textContent = ', ' + lead.nome.split(' ')[0];
+  if (typeof fbq === 'function') fbq('track', 'CompleteRegistration');
+  show('s-fim');
+}
+
+// dados: só se não veio e-mail
+const ok = (f, cond) => { f.classList.toggle('bad', !cond); return cond; };
+$('f-dados').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const f = e.target;
+  const nome = f.nome.value.trim(), email = f.email.value.trim().toLowerCase(), tel = f.telefone.value.replace(/\D/g,'');
+  let v = true;
+  v = ok(f.nome.closest('.field'), nome.length >= 2) && v;
+  v = ok(f.email.closest('.field'), /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) && v;
+  v = ok(f.telefone.closest('.field'), tel.length >= 10) && v;
+  if (!v) return;
+  Object.assign(lead, { nome, email, telefone: tel });
+  try { localStorage.setItem('tc_lead', JSON.stringify({ nome, email, telefone: tel, t: Date.now() })); } catch(e){}
+  post(WEBHOOK_CAPTURA, { nome, email, telefone: tel, ...utm }); // não espera
+  if (typeof fbq === 'function') fbq('track', 'Lead');
+  render();
+});
+
+if (lead.email) { render(); } else { progress(0); show('s-dados'); }
 </script>
 </body>
 </html>
