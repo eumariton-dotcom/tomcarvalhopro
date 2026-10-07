@@ -206,7 +206,7 @@ const form = document.getElementById('form');
 const btn  = document.getElementById('btn');
 const ok = (f, cond) => { f.classList.toggle('bad', !cond); return cond; };
 
-form.addEventListener('submit', async (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
   const nome  = form.nome.value.trim();
   const email = form.email.value.trim().toLowerCase();
@@ -220,11 +220,7 @@ form.addEventListener('submit', async (e) => {
   btn.disabled = true; btn.textContent = 'Entrando…';
   const payload = { nome, email, telefone: tel, ...utm };
   try { localStorage.setItem('tc_lead', JSON.stringify({ nome, email, telefone: tel, t: Date.now() })); } catch(e){}
-  try {
-    const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 6000);
-    await fetch(CONFIG.WEBHOOK, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload), signal: ctrl.signal });
-    clearTimeout(t);
-  } catch(e) { /* não trava o lead */ }
+  try { fetch(CONFIG.WEBHOOK, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload), keepalive: true }).catch(() => {}); } catch(e) {}
   if (typeof fbq === 'function') fbq('track', 'Lead');
   const p = new URLSearchParams({ n: nome, e: email, t: tel, ...utm });
   location.href = CONFIG.PROXIMA + '?' + p.toString();

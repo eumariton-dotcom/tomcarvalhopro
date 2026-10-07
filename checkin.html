@@ -40,8 +40,8 @@ h1{font-size:clamp(1.7rem,4.5vw,2.4rem)}
 </main>
 <script>
 // ====== CONFIGURAÇÃO — edite aqui ======
-const WEBHOOK = 'https://n8n-n8n.mchvfo.easypanel.host/webhook/checkin-lead';
-const LIVE_URL_RESERVA = 'https://COLOQUE-O-LINK-DA-LIVE-AQUI'; // usado só se o n8n não responder
+const LIVE_URL = 'https://COLOQUE-O-LINK-DA-LIVE-AQUI'; // ← TROQUE AQUI antes de cada live. O redirect usa isto, sem depender de nada.
+const WEBHOOK  = 'https://n8n-n8n.mchvfo.easypanel.host/webhook/checkin-lead'; // só registra a presença, em segundo plano
 // =======================================
 const qs = new URLSearchParams(location.search);
 const form = document.getElementById('form'), btn = document.getElementById('btn');
@@ -50,7 +50,7 @@ let saved = {}; try { saved = JSON.parse(localStorage.getItem('tc_lead') || '{}'
 form.email.value = qs.get('e') || saved.email || '';
 form.nome.value  = qs.get('n') || saved.nome  || '';
 
-form.addEventListener('submit', async (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
   const email = form.email.value.trim().toLowerCase();
   const nome  = form.nome.value.trim();
@@ -58,21 +58,14 @@ form.addEventListener('submit', async (e) => {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { f.classList.add('bad'); return; }
   f.classList.remove('bad');
   btn.disabled = true; btn.textContent = 'Entrando…';
-  let dest = LIVE_URL_RESERVA, who = nome;
-  try {
-    const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 5000);
-    const r = await fetch(WEBHOOK, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ email, nome }), signal: ctrl.signal });
-    clearTimeout(t);
-    const j = await r.json();
-    if (j && j.redirect) dest = j.redirect;
-    if (j && j.nome) who = j.nome;
-  } catch(e) { /* nunca trava o lead */ }
-  try { localStorage.setItem('tc_lead', JSON.stringify({ nome: who, email, t: Date.now() })); } catch(e){}
-  document.getElementById('hello').textContent = who ? 'Bem-vindo, ' + who.split(' ')[0] + '!' : 'Bem-vindo!';
-  document.getElementById('open').href = dest;
+  // registra a presença em segundo plano — não espera resposta, não trava o lead
+  try { fetch(WEBHOOK, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ email, nome }), keepalive: true }).catch(() => {}); } catch(e) {}
+  try { localStorage.setItem('tc_lead', JSON.stringify({ nome, email, t: Date.now() })); } catch(e){}
+  document.getElementById('hello').textContent = nome ? 'Bem-vindo, ' + nome.split(' ')[0] + '!' : 'Bem-vindo!';
+  document.getElementById('open').href = LIVE_URL;
   document.getElementById('ask').style.display = 'none';
   document.getElementById('done').style.display = 'block';
-  setTimeout(() => location.replace(dest), 800);
+  setTimeout(() => location.replace(LIVE_URL), 400);
 });
 </script>
 </body>

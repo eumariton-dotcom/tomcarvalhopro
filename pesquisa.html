@@ -81,7 +81,7 @@ h1{font-size:clamp(1.55rem,4.2vw,2.2rem)}
 // ====== CONFIGURAÇÃO — edite aqui ======
 const WEBHOOK_CAPTURA  = 'https://n8n-n8n.mchvfo.easypanel.host/webhook/captura-lead';
 const WEBHOOK_PESQUISA = 'https://n8n-n8n.mchvfo.easypanel.host/webhook/pesquisa-lead';
-const GRUPO_URL_RESERVA = 'https://chat.whatsapp.com/Bem0GrrSfca6xgu2uAgdRD'; // usado se o n8n não responder (o oficial está na aba Config da planilha)
+const GRUPO_URL = 'https://chat.whatsapp.com/Bem0GrrSfca6xgu2uAgdRD'; // ← link do grupo. O botão usa isto, sem depender de nada.
 // =======================================
 
 const PERGUNTAS = [
@@ -140,17 +140,15 @@ document.addEventListener('keydown', (e) => {
   if (n >= 1 && n <= btns.length) btns[n - 1].click();
 });
 
-async function post(url, body) {
-  const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 6000);
-  try { const r = await fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: ctrl.signal }); clearTimeout(t); return await r.json(); }
-  catch(e) { return null; }
+function post(url, body) {
+  // dispara e esquece: grava em segundo plano, nunca segura o lead
+  try { fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), keepalive: true }).catch(() => {}); } catch(e) {}
 }
 
-async function finish() {
+function finish() {
   progress(TOTAL + 1);
-  const r = await post(WEBHOOK_PESQUISA, { email: lead.email, ...resp });
-  const url = (r && r.grupo_url) ? r.grupo_url : GRUPO_URL_RESERVA;
-  $('grupo').href = url; $('grupoTxt').textContent = url;
+  post(WEBHOOK_PESQUISA, { email: lead.email, ...resp });
+  $('grupo').href = GRUPO_URL; $('grupoTxt').textContent = GRUPO_URL;
   if (lead.nome) $('fimNome').textContent = ', ' + lead.nome.split(' ')[0];
   if (typeof fbq === 'function') fbq('track', 'CompleteRegistration');
   show('s-fim');
@@ -158,7 +156,7 @@ async function finish() {
 
 // dados: só se não veio e-mail
 const ok = (f, cond) => { f.classList.toggle('bad', !cond); return cond; };
-$('f-dados').addEventListener('submit', async (e) => {
+$('f-dados').addEventListener('submit', (e) => {
   e.preventDefault();
   const f = e.target;
   const nome = f.nome.value.trim(), email = f.email.value.trim().toLowerCase(), tel = f.telefone.value.replace(/\D/g,'');
@@ -169,7 +167,7 @@ $('f-dados').addEventListener('submit', async (e) => {
   if (!v) return;
   Object.assign(lead, { nome, email, telefone: tel });
   try { localStorage.setItem('tc_lead', JSON.stringify({ nome, email, telefone: tel, t: Date.now() })); } catch(e){}
-  post(WEBHOOK_CAPTURA, { nome, email, telefone: tel, ...utm }); // não espera
+  post(WEBHOOK_CAPTURA, { nome, email, telefone: tel, ...utm });
   if (typeof fbq === 'function') fbq('track', 'Lead');
   render();
 });
