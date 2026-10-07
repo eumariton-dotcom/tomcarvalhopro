@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pesquisa — Live do Tom Carvalho</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+body{padding:40px 0 80px}
+.box{width:min(600px,calc(100% - 40px));margin:0 auto}
+.box > * + *{margin-top:18px}
+.brand{font-size:.9rem;color:var(--ink-2);font-weight:500}
+h1{font-size:clamp(1.7rem,4.5vw,2.4rem)}
+fieldset{border:0;padding:0;margin:26px 0 0}
+legend{font-weight:700;font-size:1.05rem;margin-bottom:10px;padding:0}
+.opts{display:grid;gap:8px}
+.opts label{display:flex;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-2);cursor:pointer}
+.opts label:has(input:checked){border-color:var(--amber)}
+.opts input{accent-color:var(--amber);width:18px;height:18px;margin:0;flex:none}
+.opts .err{margin-top:2px}
+fieldset.bad .err{display:block}
+#done{display:none}
+</style>
+</head>
+<body>
+<main class="box">
+  <div id="ask">
+    <p class="brand">Tom Carvalho · Funil de live semanal</p>
+    <h1>Me conta rapidinho sobre o seu negócio</h1>
+    <p class="muted">6 perguntas, menos de 1 minuto. Isso me ajuda a trazer exemplos do seu tipo de negócio na aula.</p>
+    <form id="form" novalidate>
+      <label class="field"><span>E-mail (o mesmo da inscrição)</span><input type="email" name="email" autocomplete="email" inputmode="email" placeholder="voce@email.com" required><em class="err">Digite um e-mail válido.</em></label>
+
+      <fieldset data-name="segmento"><legend>O que você vende?</legend><div class="opts">
+        <label><input type="radio" name="segmento" value="Serviço ou agência">Serviço ou agência</label>
+        <label><input type="radio" name="segmento" value="Mentoria ou curso">Mentoria ou curso</label>
+        <label><input type="radio" name="segmento" value="Franquia ou B2B">Franquia ou B2B</label>
+        <label><input type="radio" name="segmento" value="Outro">Outro</label>
+      </div><em class="err">Escolha uma opção.</em></fieldset>
+
+      <fieldset data-name="faturamento"><legend>Quanto seu negócio fatura por mês hoje?</legend><div class="opts">
+        <label><input type="radio" name="faturamento" value="Até 10 mil">Até 10 mil</label>
+        <label><input type="radio" name="faturamento" value="10 a 20 mil">10 a 20 mil</label>
+        <label><input type="radio" name="faturamento" value="20 a 50 mil">20 a 50 mil</label>
+        <label><input type="radio" name="faturamento" value="50 a 100 mil">50 a 100 mil</label>
+        <label><input type="radio" name="faturamento" value="Acima de 100 mil">Acima de 100 mil</label>
+      </div><em class="err">Escolha uma opção.</em></fieldset>
+
+      <fieldset data-name="ticket"><legend>Quanto custa, em média, o que você vende?</legend><div class="opts">
+        <label><input type="radio" name="ticket" value="Até 1 mil">Até 1 mil</label>
+        <label><input type="radio" name="ticket" value="1 a 3 mil">1 a 3 mil</label>
+        <label><input type="radio" name="ticket" value="3 a 5 mil">3 a 5 mil</label>
+        <label><input type="radio" name="ticket" value="5 a 10 mil">5 a 10 mil</label>
+        <label><input type="radio" name="ticket" value="Acima de 10 mil">Acima de 10 mil</label>
+      </div><em class="err">Escolha uma opção.</em></fieldset>
+
+      <fieldset data-name="dificuldade"><legend>Qual a sua maior dificuldade para fechar clientes hoje?</legend><div class="opts">
+        <label><input type="radio" name="dificuldade" value="Não sei quantas reuniões vou ter na semana">Não sei quantas reuniões vou ter na semana</label>
+        <label><input type="radio" name="dificuldade" value="Dependo de indicação">Dependo de indicação</label>
+        <label><input type="radio" name="dificuldade" value="Marco reunião e a pessoa não aparece">Marco reunião e a pessoa não aparece</label>
+        <label><input type="radio" name="dificuldade" value="Faço reunião e não fecho">Faço reunião e não fecho</label>
+        <label><input type="radio" name="dificuldade" value="Lead chega frio ou pechincha">Lead chega frio ou pechincha</label>
+        <label><input type="radio" name="dificuldade" value="Outro">Outro</label>
+      </div><em class="err">Escolha uma opção.</em></fieldset>
+
+      <fieldset data-name="verba"><legend>Quanto você pode investir em anúncio por mês?</legend><div class="opts">
+        <label><input type="radio" name="verba" value="Menos de 1.500">Menos de 1.500</label>
+        <label><input type="radio" name="verba" value="1.500 a 3.000">1.500 a 3.000</label>
+        <label><input type="radio" name="verba" value="3.000 a 5.000">3.000 a 5.000</label>
+        <label><input type="radio" name="verba" value="Acima de 5.000">Acima de 5.000</label>
+      </div><em class="err">Escolha uma opção.</em></fieldset>
+
+      <fieldset data-name="lives_assistidas"><legend>Quantas lives minhas você já assistiu?</legend><div class="opts">
+        <label><input type="radio" name="lives_assistidas" value="0">Nenhuma, essa é a primeira</label>
+        <label><input type="radio" name="lives_assistidas" value="1">1</label>
+        <label><input type="radio" name="lives_assistidas" value="2">2</label>
+        <label><input type="radio" name="lives_assistidas" value="3 ou mais">3 ou mais</label>
+      </div><em class="err">Escolha uma opção.</em></fieldset>
+
+      <button class="btn wide" type="submit" id="btn" style="margin-top:26px">Enviar respostas</button>
+    </form>
+  </div>
+  <div id="done">
+    <p class="brand">Tom Carvalho · Funil de live semanal</p>
+    <h1>Recebido. Obrigado!</h1>
+    <p class="muted">Te vejo na aula. O link chega no grupo do WhatsApp.</p>
+  </div>
+</main>
+<script>
+// ====== CONFIGURAÇÃO — edite aqui ======
+const WEBHOOK = 'https://n8n-n8n.mchvfo.easypanel.host/webhook/pesquisa-lead';
+// =======================================
+const qs = new URLSearchParams(location.search);
+const form = document.getElementById('form'), btn = document.getElementById('btn');
+let saved = {}; try { saved = JSON.parse(localStorage.getItem('tc_lead') || '{}'); } catch(e){}
+form.email.value = qs.get('e') || saved.email || '';
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  let valid = true;
+  const email = form.email.value.trim().toLowerCase();
+  const fe = form.email.closest('.field');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { fe.classList.add('bad'); valid = false; } else fe.classList.remove('bad');
+  const data = { email };
+  document.querySelectorAll('fieldset').forEach(fs => {
+    const name = fs.dataset.name, v = form.querySelector(`input[name="${name}"]:checked`);
+    fs.classList.toggle('bad', !v);
+    if (!v) valid = false; else data[name] = v.value;
+  });
+  if (!valid) { document.querySelector('.bad').scrollIntoView({ block: 'center' }); return; }
+  btn.disabled = true; btn.textContent = 'Enviando…';
+  try {
+    const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 6000);
+    await fetch(WEBHOOK, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data), signal: ctrl.signal });
+    clearTimeout(t);
+  } catch(e) {}
+  document.getElementById('ask').style.display = 'none';
+  document.getElementById('done').style.display = 'block';
+  window.scrollTo(0, 0);
+});
+</script>
+</body>
+</html>
