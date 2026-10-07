@@ -114,7 +114,7 @@ let i = 0;
 
 const $ = id => document.getElementById(id);
 const show = id => { ['s-dados','s-q','s-fim'].forEach(s => $(s).classList.add('hide')); const el = $(id); el.classList.remove('hide'); el.classList.remove('screen'); void el.offsetWidth; el.classList.add('screen'); window.scrollTo(0,0); };
-const progress = (n) => { $('bar').style.width = Math.round(n / (TOTAL + 1) * 100) + '%'; $('stepTop').textContent = n <= TOTAL ? `${n} de ${TOTAL}` : ''; };
+const progress = (n) => { $('bar').style.width = Math.round(n / (TOTAL + 1) * 100) + '%'; $('stepTop').textContent = (n >= 1 && n <= TOTAL) ? `${n} de ${TOTAL}` : ''; };
 
 function render() {
   const q = PERGUNTAS[i];
