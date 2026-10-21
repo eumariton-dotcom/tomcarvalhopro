@@ -208,6 +208,11 @@
   .casos .v{font-family:var(--display);font-weight:800;font-size:clamp(30px,3.2vw,42px);letter-spacing:-.03em;line-height:1;margin-top:10px;white-space:nowrap}
   .casos .d{font-size:14px;color:var(--nota);margin-top:8px;line-height:1.45}
   @media (max-width:860px){.painel{grid-template-columns:repeat(3,1fr);gap:10px}.casos{grid-template-columns:1fr}}
+  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;max-width:1000px}
+  .tags span{border:1px solid var(--linha);background:var(--grafite);padding:11px 16px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--papel);line-height:1}
+  .tags span.mais{color:var(--azul);border-color:var(--azul)}
+  .casos-lab{margin-top:44px}
+  @media (max-width:860px){.tags span{padding:10px 12px;font-size:11px}}
 </style>
 </head>
 <body>
@@ -252,16 +257,11 @@
 <!-- DOBRA 3 · A AULA -->
 <section id="aula" class="alt">
   <div class="wrap">
-    <h2>Uma aula por semana no lugar de 10 reuniões.</h2>
-    <div class="painel" aria-label="As 6 letras do PAINEL">
-      <div class="l"><b>P</b><span>Promessa</span><i>etapa 1</i></div>
-      <div class="l"><b>A</b><span>Anúncio</span><i>etapa 1</i></div>
-      <div class="l"><b>I</b><span>Inscrição</span><i>etapa 2</i></div>
-      <div class="l"><b>N</b><span>Nutrição</span><i>etapa 3</i></div>
-      <div class="l"><b>E</b><span>Evento</span><i>etapa 4</i></div>
-      <div class="l"><b>L</b><span>Ligação</span><i>etapa 5</i></div>
+    <h2 style="max-width:900px">Quem vende por reunião usa essa estrutura.</h2>
+    <div class="tags" aria-label="Quem usa essa estrutura">
+      <span>Franquias</span><span>Agências de marketing</span><span>Mentores</span><span>Consultores</span><span>Infoprodutores</span><span>Serviços com entrega online</span><span>Agências de tráfego</span><span>Clínicas</span><span>Odontologia</span><span>Estética</span><span>Escritórios de advocacia</span><span>Contabilidade</span><span>Imobiliárias</span><span>Incorporadoras</span><span>Arquitetura</span><span>Energia solar</span><span>Softwares B2B</span><span>Assessorias de investimento</span><span>Seguros e consórcio</span><span>Escolas e cursos</span><span>Indústria que vende por orçamento</span><span class="mais">e muito mais</span>
     </div>
-    <p class="painel-linha">O funil inteiro, do anúncio ao contrato: as 5 etapas, as 6 taxas e onde a maioria quebra.</p>
+    <p class="lab casos-lab">três casos que eu montei</p>
     <div class="casos">
       <div class="m"><div class="k">franquia</div><div class="v">200 → 450 mil</div><div class="d">por mês, sem contratar closer</div></div>
       <div class="m"><div class="k">mentoria</div><div class="v">R$ 3 mil</div><div class="d">de ticket, com aplicação dentro da aula</div></div>
