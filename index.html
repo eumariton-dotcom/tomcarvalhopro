@@ -346,8 +346,8 @@
   // Todo botão "Entrar no grupo" abre o popup
   var veu = document.getElementById('veu'), form = document.getElementById('form');
   document.querySelectorAll('a[href="GRUPO_URL"]').forEach(function (a) { a.href = '#cadastro'; a.addEventListener('click', function (e) { e.preventDefault(); abrir(); }); });
-  function abrir() { veu.classList.add('aberto'); document.body.classList.add('popup-aberto'); document.body.style.overflow = 'hidden'; setTimeout(function () { document.getElementById('f-nome').focus(); }, 50); }
-  function fechar() { veu.classList.remove('aberto'); document.body.classList.remove('popup-aberto'); document.body.style.overflow = ''; }
+  function abrir() { var barra = window.innerWidth - document.documentElement.clientWidth; veu.classList.add('aberto'); document.body.classList.add('popup-aberto'); document.body.style.overflow = 'hidden'; if (barra > 0) document.body.style.paddingRight = barra + 'px'; setTimeout(function () { document.getElementById('f-nome').focus(); }, 50); }
+  function fechar() { veu.classList.remove('aberto'); document.body.classList.remove('popup-aberto'); document.body.style.overflow = ''; document.body.style.paddingRight = ''; }
   document.getElementById('fechar').addEventListener('click', fechar);
   veu.addEventListener('click', function (e) { if (e.target === veu) fechar(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fechar(); });
