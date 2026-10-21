@@ -8,6 +8,8 @@
 <meta property="og:title" content="Para de correr atrás de lead. Faça o lead correr atrás de você.">
 <meta property="og:description" content="Aula ao vivo de 1 hora, toda semana, gratuita. Reunião só com leads qualificados.">
 <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap">
 <style>
   /* tom Design System — Sala de Controle: três neutros + um sinal. Sem raio, sem sombra, sem gradiente. */
   @font-face{font-family:'Archivo';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/Archivo-VF-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
@@ -184,10 +186,18 @@
     .creds div{grid-template-columns:1fr;gap:4px}
   }
   @media print{@page{size:1366px 4600px;margin:0}html{width:1366px}html,body{background:#0A0B0D;-webkit-print-color-adjust:exact;print-color-adjust:exact}.fixo{display:none!important}.hero{min-height:860px}section,.hero,footer{break-inside:avoid-page}}
+  /* desenhos à mão */
+  .desenho{width:100%;height:auto;display:block;margin:32px 0 0}
+  .desenho.so-mob{display:none}
+  .desenho text{font-family:Caveat,'Brush Script MT',cursive;font-weight:600}
+  .desenho .mono{font-family:var(--mono);font-weight:400;letter-spacing:2px;text-transform:uppercase}
+  .desenho .corpo{font-family:var(--body);font-weight:400}
+  .linha-forte{font-family:var(--display);font-weight:800;font-size:clamp(24px,2.6vw,32px);letter-spacing:-.02em;line-height:1.15;margin-top:36px;max-width:900px}
+  .objecoes .card p{color:var(--nota)}
+  @media (max-width:860px){.desenho.so-desk{display:none}.desenho.so-mob{display:block}}
 </style>
 </head>
 <body>
-
 <div class="barra">
   <div class="wrap">
     <div class="lab itens"><span>Aula ao vivo</span><span>Toda semana</span><span>Gratuita</span><span>Dia e hora no grupo do WhatsApp</span></div>
@@ -205,98 +215,60 @@
     <div class="txt">
       <p class="lab">aulão semanal · 1 hora · ao vivo</p>
       <h1>Para de correr atrás de lead. Faça o lead correr atrás de <span class="azul">você</span>.</h1>
-      <p class="sub">Uma aula ao vivo de 1 hora, toda semana, pra quem vende serviço, mentoria, infoproduto ou franquia por reunião e já paga anúncio. Em 1 hora você aprende a montar a aula que faz o lead correr atrás de você: reunião só com leads qualificados, toda semana.</p>
+      <p class="sub">Uma aula ao vivo de 1 hora, toda semana, pra quem vende por reunião e já paga anúncio. Você sai sabendo montar a aula que faz o lead correr atrás de você.</p>
       <div class="acoes">
         <a class="btn" href="GRUPO_URL" id="cta1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg>
           Entrar no grupo do aulão
         </a>
-        <p class="mini">Sem formulário. O dia, a hora e o link da aula chegam pelo grupo.</p>
+        <p class="mini">Nome, e-mail e WhatsApp. O dia, a hora e o link chegam pelo grupo.</p>
       </div>
     </div>
   </div>
 </header>
 
-<!-- DOBRA 2 · A DOR + O FLUXO + A REFERÊNCIA -->
+<!-- DOBRA 2 · O PROBLEMA + O FLUXO -->
 <section id="dor">
   <div class="wrap">
     <div class="cab"><span class="num">01</span><span class="lab">o problema</span></div>
     <div class="duas">
-      <div>
-        <h2>Aumente o faturamento da sua operação sem aumentar o time.</h2>
-      </div>
+      <div><h2>Aumente o faturamento da sua operação sem aumentar o time.</h2></div>
       <div class="dor texto">
         <p>Se pra vender mais você precisa contratar mais, tem alguma coisa errada no funil.</p>
-        <p class="nota">Você paga anúncio, o lead preenche o formulário, alguém liga, e 3 ou 4 dias depois ele cai numa reunião com uma pessoa que vai tentar vender pra ele por 1 hora. Metade não aparece. Dos que aparecem, a maioria não estava pronta.</p>
-        <p class="nota">Resultado: o closer faz 10 reuniões pra fechar 1. E você conclui que precisa de mais reunião, quando precisava de reunião melhor.</p>
+        <p class="nota">O closer faz 10 reuniões pra fechar 1. Você não precisava de mais reunião. Precisava de reunião melhor.</p>
       </div>
     </div>
-
-    <div class="fluxo" aria-label="O fluxo do aulão em 4 caixas">
-      <div class="cx"><div class="n">01</div><div class="t">Anúncio</div><div class="d">Um vídeo que ensina uma coisa e chama pra aula.</div></div>
-      <div class="cx"><div class="n">02</div><div class="t">Grupo no WhatsApp</div><div class="d">3 dias de aquecimento. O link chega 10 minutos antes.</div></div>
-      <div class="cx"><div class="n">03</div><div class="t">Aula ao vivo, 1 h</div><div class="d">Com roteiro. Sem preço, sem gravação.</div></div>
-      <div class="cx fim"><div class="n">04</div><div class="t">Reunião</div><div class="d">Só com quem levantou a mão no fim da aula.</div></div>
-    </div>
-    <p class="texto nota" style="max-width:760px">Toda semana, igual. Mesmo desenho pra serviço, mentoria, infoproduto e franquia. O que muda é o que você diz na aula. O que não muda é a estrutura.</p>
-
-    <div class="duas" style="margin-top:44px">
-      <div>
-        <h3 style="font-size:24px">A reunião acontece em outro contexto.</h3>
-        <ul class="checks">
-          <li>Já te ouviu explicar a tua tese</li>
-          <li>Já entendeu por que o jeito que ele faz hoje não funciona</li>
-          <li>Já viu caso parecido com o dele</li>
-          <li>Já teve as dúvidas respondidas</li>
-          <li>Já decidiu se faz sentido antes de sentar com o closer</li>
-        </ul>
-        <p class="texto" style="margin-top:18px">Quem pede reunião direto chega desconfiado e você gasta a reunião inteira construindo valor. Quem vem da aula chega com o valor construído. <b>O closer deixa de fazer 10 reuniões pra vender 1 e passa a fazer 5 pra vender 2.</b></p>
-      </div>
-      <div>
-        <h3 style="font-size:24px">A referência semanal, com cerca de R$&nbsp;1.500 por mês em anúncio.</h3>
-        <div class="ref">
-          <div class="m"><div class="k">no grupo</div><div class="v">100</div></div>
-          <div class="m"><div class="k">ao vivo</div><div class="v">30</div></div>
-          <div class="m"><div class="k">reuniões</div><div class="v">5 a 6</div></div>
-          <div class="m"><div class="k">em contrato</div><div class="v">até 40%</div></div>
-        </div>
-        <p class="fonte">Referência de mercado pra você se medir, não promessa. Na aula eu mostro as 6 taxas entre o anúncio e o contrato, o número que cada uma precisa dar e onde mexer quando não dá.</p>
-      </div>
-    </div>
+    <svg class="desenho so-desk" viewBox="0 0 1120 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="O fluxo do aulão: anúncio, grupo no WhatsApp, aula ao vivo e reunião" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M0.7 37.8 C 68.7 33.3, 161.2 38.1, 230.7 35.2 C 234.3 70.7, 231.5 120.1, 234 154.1 C 161.5 154.8, 69.4 153.4, -1.1 155.4 C -2.7 119.8, -1 70.6, -0.3 36.2" stroke="#EEEFEA"/><path d="M0.4 36.7 C 70.6 34.4, 163.9 35, 230.1 35.6 C 234.6 69.6, 232.2 119.2, 233.6 153.4 C 163.6 156.3, 70.1 153.8, -0.9 155.7 C 0.2 120, 1.6 71.3, 1.1 35" stroke="#EEEFEA" stroke-width="1.4" opacity=".55"/><text x="18" y="66" font-size="12" fill="#9AA0A6" class="mono" letter-spacing="2">01</text><text x="18" y="104" font-size="29" fill="#EEEFEA">Anúncio</text><text x="18" y="134" font-size="15" fill="#9AA0A6" class="corpo">ensina uma coisa, chama pra aula</text><path d="M238.7 95 Q 262.8 98.5 288 96.7" stroke="#9AA0A6"/><path d="M239.6 93.6 Q 264.8 100 289.9 93" stroke="#9AA0A6" stroke-width="1.4" opacity=".55"/><path d="M275 102.6 L287.4 96.4 L273.3 84.1" stroke="#9AA0A6"/><path d="M295.8 37.5 C 365.9 33, 456.5 36.2, 530.1 35.9 C 529.8 72.2, 526.9 116.8, 528.4 153.8 C 460.6 153.2, 367.2 154.2, 296.6 152.2 C 296.5 119.1, 297.3 72.1, 295.8 36.9" stroke="#EEEFEA"/><path d="M296.4 36.3 C 367.5 33.2, 457.8 37.7, 528.2 35 C 528.1 70.9, 528 117.5, 526 152.2 C 460.5 156.8, 367.1 154.5, 295.6 153.4 C 294.1 120.7, 295.1 72.6, 293.9 35.5" stroke="#EEEFEA" stroke-width="1.4" opacity=".55"/><text x="314" y="66" font-size="12" fill="#9AA0A6" class="mono" letter-spacing="2">02</text><text x="314" y="104" font-size="29" fill="#EEEFEA">Grupo no WhatsApp</text><text x="314" y="134" font-size="15" fill="#9AA0A6" class="corpo">3 dias de aquecimento</text><path d="M536.6 96.9 Q 561 98.3 582.5 95" stroke="#9AA0A6"/><path d="M535.1 93.2 Q 558.5 100.8 582.5 93.1" stroke="#9AA0A6" stroke-width="1.4" opacity=".55"/><path d="M570.4 105.3 L584.8 96.3 L569.5 85.6" stroke="#9AA0A6"/><path d="M593.8 35.5 C 662.2 34.3, 753 38.5, 824.1 34.6 C 824.5 73, 824.4 119.5, 825.3 154.1 C 753.1 156, 662.5 152.3, 590.2 155.1 C 590.9 117.5, 591.3 69.5, 592.8 34.6" stroke="#EEEFEA"/><path d="M592.1 37.2 C 661.2 33.9, 756.3 35.6, 824.7 36.4 C 826.8 70, 821.6 116.6, 822.9 152.2 C 756.5 153.8, 662.7 151.3, 592.4 154.3 C 592.8 119.5, 595.1 72.5, 589.9 35.5" stroke="#EEEFEA" stroke-width="1.4" opacity=".55"/><text x="610" y="66" font-size="12" fill="#9AA0A6" class="mono" letter-spacing="2">03</text><text x="610" y="104" font-size="29" fill="#EEEFEA">Aula ao vivo, 1 h</text><text x="610" y="134" font-size="15" fill="#9AA0A6" class="corpo">com roteiro, sem preço</text><path d="M830 97 Q 854.6 97.9 881.8 96.5" stroke="#9AA0A6"/><path d="M833.1 94.2 Q 857 101 880.3 94.1" stroke="#9AA0A6" stroke-width="1.4" opacity=".55"/><path d="M865.2 102.2 L881.9 93.8 L865.2 84.1" stroke="#9AA0A6"/><path d="M886.2 36.6 C 955.9 34.4, 1050.4 37, 1119.7 35.1 C 1121.6 72.4, 1118.8 120.5, 1120.6 153.5 C 1051.8 155.5, 957.7 153.8, 886.1 152.9 C 889.1 118.2, 886.8 69.6, 886 34.7" stroke="#4D8FFF"/><path d="M887.8 35.6 C 956.6 35, 1052.1 37.5, 1120.4 37.9 C 1121.6 70.1, 1121 119.8, 1121 153.4 C 1050.1 155.4, 957.9 150.9, 886.7 156.2 C 889.2 120.6, 887 72.4, 887.2 34.6" stroke="#4D8FFF" stroke-width="1.4" opacity=".55"/><text x="906" y="66" font-size="12" fill="#9AA0A6" class="mono" letter-spacing="2">04</text><text x="906" y="104" font-size="29" fill="#4D8FFF">Reunião</text><text x="906" y="134" font-size="15" fill="#9AA0A6" class="corpo">só com quem levantou a mão</text></svg>
+    <svg class="desenho so-mob" viewBox="0 0 335 618" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="O fluxo do aulão: anúncio, grupo no WhatsApp, aula ao vivo e reunião" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.7 4.7 C 102.4 1.7, 233.3 3.8, 334.2 1.8 C 331.8 40.6, 333.5 86.6, 333.6 121.3 C 232.1 124.2, 103.2 120.2, 2.5 119.9 C 0.9 86.8, 0.9 37.3, -0.1 3.3" stroke="#EEEFEA"/><path d="M1.4 3.7 C 100.9 4.9, 232.4 5.7, 331.4 5.1 C 333.9 38.9, 331.9 85.7, 331.3 123.4 C 233.8 124, 100 121.4, 2.6 119.8 C 2.8 85.6, 3.8 41.1, 0 4.5" stroke="#EEEFEA" stroke-width="1.4" opacity=".55"/><text x="20" y="34" font-size="12" fill="#9AA0A6" class="mono" letter-spacing="2">01</text><text x="20" y="72" font-size="34" fill="#EEEFEA">Anúncio</text><text x="20" y="102" font-size="15" fill="#9AA0A6" class="corpo">ensina uma coisa, chama pra aula</text><path d="M169.4 127.4 Q 162.5 145 168.2 159.8" stroke="#9AA0A6"/><path d="M169.5 127.3 Q 162.5 146.1 168.9 162" stroke="#9AA0A6" stroke-width="1.4" opacity=".55"/><path d="M157.7 148.1 L165.6 159.9 L178.1 147.7" stroke="#9AA0A6"/><path d="M1.2 167 C 103.3 167.5, 232.1 167.3, 332.2 169.7 C 333.1 204.9, 333.9 252.4, 333.6 286.9 C 233.2 285.1, 101.8 283.4, 2.5 284.2 C 1.3 251.2, 3.1 201.8, 2.3 167.3" stroke="#EEEFEA"/><path d="M0.7 169.5 C 103.3 165.8, 235.3 170.3, 333.5 166 C 333 204.6, 333.4 252, 331.3 286.3 C 235.1 285.1, 102.4 285.9, 0 287.2 C 2.7 250.5, 0.9 204.8, 3.1 169.9" stroke="#EEEFEA" stroke-width="1.4" opacity=".55"/><text x="20" y="198" font-size="12" fill="#9AA0A6" class="mono" letter-spacing="2">02</text><text x="20" y="236" font-size="34" fill="#EEEFEA">Grupo no WhatsApp</text><text x="20" y="266" font-size="15" fill="#9AA0A6" class="corpo">3 dias de aquecimento</text><path d="M169.1 291.2 Q 165.4 308.8 167.8 325.7" stroke="#9AA0A6"/><path d="M165.4 293.8 Q 165 311.2 168.8 326.4" stroke="#9AA0A6" stroke-width="1.4" opacity=".55"/><path d="M159.6 312.6 L165.7 327 L177.9 313.1" stroke="#9AA0A6"/><path d="M1.4 333.2 C 103.4 328.9, 235.6 331.8, 331.5 332.8 C 335.6 366.1, 331.9 413.9, 333.1 450.9 C 231.8 451.3, 102.6 448.9, 3.2 448.5 C 2.9 414.6, 1.7 369.2, 0.8 331.4" stroke="#EEEFEA"/><path d="M3.3 331.2 C 99.4 328.9, 232.5 333.9, 335.1 331.3 C 334.8 365.7, 330.2 414.4, 334.4 451.8 C 233.3 451.1, 99.9 451.1, 2.6 449.4 C 1.3 415, 4.4 367.9, 3.3 329.9" stroke="#EEEFEA" stroke-width="1.4" opacity=".55"/><text x="20" y="362" font-size="12" fill="#9AA0A6" class="mono" letter-spacing="2">03</text><text x="20" y="400" font-size="34" fill="#EEEFEA">Aula ao vivo, 1 h</text><text x="20" y="430" font-size="15" fill="#9AA0A6" class="corpo">com roteiro, sem preço</text><path d="M167.5 456.7 Q 162.8 473.7 168 488.8" stroke="#9AA0A6"/><path d="M167.6 454 Q 161.6 473 167.1 489.2" stroke="#9AA0A6" stroke-width="1.4" opacity=".55"/><path d="M160.7 474.2 L166.8 489.7 L176.6 476.5" stroke="#9AA0A6"/><path d="M0.8 494.4 C 101.3 496.3, 232.9 496.8, 333.3 496 C 335.6 533.3, 330.2 577.2, 332.2 614.1 C 235 613.5, 99.9 611.3, 3.6 614.1 C 1.4 580.1, 4.9 531.9, 2 497.6" stroke="#4D8FFF"/><path d="M2.4 495 C 102.1 497.1, 234.1 498.5, 331.4 497.4 C 335.1 531.6, 331.7 580.1, 333.4 615.3 C 233.6 615.7, 100.7 611.4, 0.8 614.2 C -0.3 579.4, 4.1 529.6, 1.6 495.6" stroke="#4D8FFF" stroke-width="1.4" opacity=".55"/><text x="20" y="526" font-size="12" fill="#9AA0A6" class="mono" letter-spacing="2">04</text><text x="20" y="564" font-size="34" fill="#4D8FFF">Reunião</text><text x="20" y="594" font-size="15" fill="#9AA0A6" class="corpo">só com quem levantou a mão</text></svg>
+    <p class="linha-forte">Quem vem da aula já te ouviu por 1 hora. O closer deixa de fazer 10 reuniões pra vender 1 e passa a fazer <span class="azul" style="white-space:nowrap">5 pra vender 2</span>.</p>
   </div>
 </section>
 
-<!-- DOBRA 3 · O QUE VOCÊ VAI VER + PRA QUEM É -->
+<!-- DOBRA 3 · A AULA -->
 <section id="aula" class="alt">
   <div class="wrap">
     <div class="cab"><span class="num">02</span><span class="lab">o que você vai ver na aula</span></div>
-    <h2>O que você vai ver na aula</h2>
-    <div class="cards">
-      <div class="card bracket"><div class="n">01</div><h3>O funil PAINEL, do anúncio ao contrato</h3><p>Promessa, Anúncio, Inscrição, Nutrição, Evento, Ligação. O que cada etapa faz e onde a maioria quebra.</p></div>
-      <div class="card"><div class="n">02</div><h3>Como filtrar antes da reunião, não dentro dela</h3><p>O que a aula faz pelo closer e por que 5 reuniões passam a valer mais que 10.</p></div>
-      <div class="card"><div class="n">03</div><h3>As 6 taxas e a referência de cada uma</h3><p>Você vai saber se o teu problema é lead, presença, chamada ou call.</p></div>
-      <div class="card"><div class="n">04</div><h3>Três casos, três negócios</h3><p>Uma franquia que foi de R$ 200 mil a R$ 450 mil por mês sem contratar closer. Uma mentoria de R$ 3 mil com aplicação dentro da aula. Um infoproduto com venda dentro da aula.</p></div>
-    </div>
-
+    <h2>Uma aula por semana no lugar de 10 reuniões.</h2>
+    <svg class="desenho so-desk" viewBox="0 0 1120 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Os 4 pontos da aula" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M174.9 45.7 C 337.8 39, 672 47.8, 945.9 44.7" stroke="#9AA0A6" opacity=".5" stroke-width="1.6"/><path d="M108.5 43.3 a30.6 29.3 0 1 0 60.3 0 a28.4 30.7 0 1 0 -60.5 0" stroke="#EEEFEA" fill="#0A0B0D"/><path d="M110.5 45.7 a30.3 28.1 0 1 0 59.6 0 a28.2 29.6 0 1 0 -60 0" stroke="#EEEFEA" stroke-width="1.4" opacity=".55" fill="none"/><text x="140" y="57" font-size="38" fill="#EEEFEA" text-anchor="middle">1</text><text x="140" y="120" font-size="30" fill="#EEEFEA" text-anchor="middle">O funil PAINEL,</text><text x="140" y="156" font-size="30" fill="#EEEFEA" text-anchor="middle">do anúncio ao contrato</text><path d="M389.2 44.2 a30.7 28.7 0 1 0 59.5 0 a29.5 31 0 1 0 -59.3 0" stroke="#EEEFEA" fill="#0A0B0D"/><path d="M391.5 43.3 a30.4 28.4 0 1 0 60.9 0 a28.4 30.2 0 1 0 -60.5 0" stroke="#EEEFEA" stroke-width="1.4" opacity=".55" fill="none"/><text x="420" y="57" font-size="38" fill="#EEEFEA" text-anchor="middle">2</text><text x="420" y="120" font-size="30" fill="#EEEFEA" text-anchor="middle">Filtrar antes da reunião,</text><text x="420" y="156" font-size="30" fill="#EEEFEA" text-anchor="middle">não dentro dela</text><path d="M668.1 42.7 a30.2 28.5 0 1 0 59.9 0 a28.7 30.3 0 1 0 -59.3 0" stroke="#EEEFEA" fill="#0A0B0D"/><path d="M668.9 43.1 a30.5 28.5 0 1 0 60.5 0 a29.1 29.4 0 1 0 -60.2 0" stroke="#EEEFEA" stroke-width="1.4" opacity=".55" fill="none"/><text x="700" y="57" font-size="38" fill="#EEEFEA" text-anchor="middle">3</text><text x="700" y="120" font-size="30" fill="#EEEFEA" text-anchor="middle">As 6 taxas e a</text><text x="700" y="156" font-size="30" fill="#EEEFEA" text-anchor="middle">referência de cada uma</text><path d="M951.5 42.8 a30.5 29.5 0 1 0 60.6 0 a28 29 0 1 0 -60.2 0" stroke="#4D8FFF" fill="#0A0B0D"/><path d="M951.9 45.3 a29.9 29.1 0 1 0 60.2 0 a28.3 30.4 0 1 0 -59.3 0" stroke="#4D8FFF" stroke-width="1.4" opacity=".55" fill="none"/><text x="980" y="57" font-size="38" fill="#4D8FFF" text-anchor="middle">4</text><text x="980" y="120" font-size="30" fill="#EEEFEA" text-anchor="middle">Três casos: franquia,</text><text x="980" y="156" font-size="30" fill="#EEEFEA" text-anchor="middle">mentoria e infoproduto</text></svg>
+    <svg class="desenho so-mob" viewBox="0 0 335 384" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Os 4 pontos da aula" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M33.4 33.7 C 33.1 151.9, 36.2 268.2, 36 323.1" stroke="#9AA0A6" opacity=".5" stroke-width="1.6"/><path d="M7.8 33 a25.3 25.3 0 1 0 52 0 a25.8 25.7 0 1 0 -52.8 0" stroke="#EEEFEA" fill="#0A0B0D"/><path d="M8.2 31.9 a25.9 24.7 0 1 0 51.1 0 a25.8 26.6 0 1 0 -51.3 0" stroke="#EEEFEA" stroke-width="1.4" opacity=".55" fill="none"/><text x="34" y="45" font-size="32" fill="#EEEFEA" text-anchor="middle">1</text><text x="78" y="30" font-size="26" fill="#EEEFEA">O funil PAINEL,</text><text x="78" y="60" font-size="26" fill="#EEEFEA">do anúncio ao contrato</text><path d="M10.1 129.2 a26.6 24.1 0 1 0 51.6 0 a24.8 26.1 0 1 0 -52.7 0" stroke="#EEEFEA" fill="#0A0B0D"/><path d="M6 131.6 a25.6 24.2 0 1 0 51.8 0 a24.4 25 0 1 0 -51.7 0" stroke="#EEEFEA" stroke-width="1.4" opacity=".55" fill="none"/><text x="34" y="141" font-size="32" fill="#EEEFEA" text-anchor="middle">2</text><text x="78" y="126" font-size="26" fill="#EEEFEA">Filtrar antes da reunião,</text><text x="78" y="156" font-size="26" fill="#EEEFEA">não dentro dela</text><path d="M6.8 224.8 a26.9 25.5 0 1 0 51.2 0 a25.5 25.7 0 1 0 -52.8 0" stroke="#EEEFEA" fill="#0A0B0D"/><path d="M7.9 225 a26.3 25 0 1 0 51 0 a24.1 25.6 0 1 0 -51.1 0" stroke="#EEEFEA" stroke-width="1.4" opacity=".55" fill="none"/><text x="34" y="237" font-size="32" fill="#EEEFEA" text-anchor="middle">3</text><text x="78" y="222" font-size="26" fill="#EEEFEA">As 6 taxas e a</text><text x="78" y="252" font-size="26" fill="#EEEFEA">referência de cada uma</text><path d="M9.8 321 a26.1 25 0 1 0 52.6 0 a24.3 25.6 0 1 0 -52.3 0" stroke="#4D8FFF" fill="#0A0B0D"/><path d="M7.1 322.9 a25.6 24.6 0 1 0 51.3 0 a24.2 26.2 0 1 0 -51 0" stroke="#4D8FFF" stroke-width="1.4" opacity=".55" fill="none"/><text x="34" y="333" font-size="32" fill="#4D8FFF" text-anchor="middle">4</text><text x="78" y="318" font-size="26" fill="#EEEFEA">Três casos: franquia,</text><text x="78" y="348" font-size="26" fill="#EEEFEA">mentoria e infoproduto</text></svg>
     <div class="objecoes">
-      <div class="card"><div class="n">o lead que você jogou fora</div><h3>O falso desqualificado.</h3><p>Tem um lead que você chama de desqualificado e não é. Ele viu o anúncio, se interessou, e esfriou nos 3 dias até a call. Deu no-show ou nunca agendou. Numa aula, ele assiste sem ter que falar com ninguém, e levanta a mão quando está pronto. Sem aula, ele vira custo.</p></div>
-      <div class="card"><div class="n">“eu não sou bom de câmera”</div><h3>A aula tem roteiro.</h3><p>Você fala do que já fala todo dia pro cliente, por 1 hora, uma vez por semana. Não precisa de carisma. Precisa de estrutura e de 6 números, e é isso que eu mostro na aula.</p></div>
+      <div class="card"><div class="n">o lead que você jogou fora</div><h3>O falso desqualificado.</h3><p>Viu o anúncio, se interessou e esfriou até a call. Na aula ele assiste sem falar com ninguém e levanta a mão quando está pronto.</p></div>
+      <div class="card"><div class="n">“eu não sou bom de câmera”</div><h3>A aula tem roteiro.</h3><p>Você fala o que já fala pro cliente todo dia, pra 30 de uma vez. Precisa de estrutura, não de carisma.</p></div>
     </div>
-
     <div class="duas" style="margin-top:44px">
       <div>
         <h3 style="font-size:24px">É pra você se</h3>
         <ul class="checks">
-          <li>Vende serviço, mentoria, consultoria, infoproduto de ticket alto, franquia ou B2B, por reunião</li>
+          <li>Vende serviço, mentoria, infoproduto, franquia ou B2B por reunião</li>
           <li>Já paga anúncio</li>
-          <li>Tem pelo menos um cliente com resultado pra mostrar</li>
+          <li>Tem pelo menos 1 cliente com resultado</li>
         </ul>
       </div>
       <div>
         <h3 style="font-size:24px;color:var(--nota)">Ainda não é pra você se</h3>
         <ul class="checks x">
           <li>Vende ticket baixo, sem reunião</li>
-          <li>Ainda não tem case nem cliente atendido</li>
+          <li>Ainda não tem case</li>
         </ul>
       </div>
     </div>
@@ -304,7 +276,7 @@
 </section>
 
 <!-- DOBRA 4 · QUEM CONDUZ + COMO PARTICIPAR -->
-<section id="quem">
+<section id="quem" class="alt">
   <div class="wrap">
     <div class="cab"><span class="num">03</span><span class="lab">quem conduz · como participar</span></div>
     <div class="quem">
@@ -315,27 +287,26 @@
       <div>
         <p class="lab">quem dá a aula</p>
         <p class="nome">Tom Carvalho</p>
-        <p class="texto">Há mais de 5 anos monto a mesma estrutura de aula ao vivo pra vender serviço, mentoria, infoproduto e franquia por reunião.</p>
+        <p class="texto">Há mais de 5 anos monto a mesma aula ao vivo pra vender serviço, mentoria, infoproduto e franquia por reunião.</p>
         <div class="creds">
-          <div><span class="v">R$ 400 mil</span><span class="d">por semana em anúncio, no funil que operei. Foi ali que aprendi a ler taxa.</span></div>
-          <div><span class="v">7 → 60+</span><span class="d">pessoas numa edtech onde fui diretor de operações: de 7 a mais de R$ 40 milhões por ano.</span></div>
-          <div><span class="v">200 → 450 mil</span><span class="d">por mês numa franquia, com uma aula na frente da reunião. Menos call. Sobrou closer.</span></div>
+          <div><span class="v">R$ 400 mil</span><span class="d">por semana em anúncio, no funil que operei</span></div>
+          <div><span class="v">7 → 60+</span><span class="d">pessoas na edtech onde fui diretor de operações, R$ 40 mi por ano</span></div>
+          <div><span class="v">200 → 450 mil</span><span class="d">por mês numa franquia, com uma aula na frente da reunião</span></div>
         </div>
       </div>
     </div>
 
     <h2 style="margin-top:56px">Como participar</h2>
     <div class="passos">
-      <div class="passo"><div class="n">1</div><p>Clica no botão e entra no grupo do WhatsApp.</p></div>
-      <div class="passo"><div class="n">2</div><p>O dia e a hora da próxima aula chegam por lá, com o link.</p></div>
+      <div class="passo"><div class="n">1</div><p>Clica no botão e deixa nome, e-mail e WhatsApp.</p></div>
+      <div class="passo"><div class="n">2</div><p>Entra no grupo. O dia, a hora e o link chegam por lá.</p></div>
       <div class="passo"><div class="n">3</div><p>1 hora ao vivo, com perguntas no fim. Sem gravação.</p></div>
     </div>
     <div class="cta-final">
       <a class="btn" href="GRUPO_URL" id="cta2">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg>
-        Entrar no grupo do aulão
-      </a>
-      <p class="mini" style="margin:0">Sem formulário. O dia, a hora e o link da aula chegam pelo grupo.</p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+          Entrar no grupo do aulão
+        </a>
     </div>
   </div>
 </section>
