@@ -162,6 +162,7 @@
     .hero-foto{width:100%;height:420px;bottom:auto}
     .hero-foto img{object-fit:cover;object-position:center 15%;-webkit-mask-image:linear-gradient(to top,transparent 0,#000 45%);mask-image:linear-gradient(to top,transparent 0,#000 45%)}
     .hero-foto .tag{display:none}
+    .hero-foto:after{content:"";position:absolute;left:0;right:0;bottom:0;height:60%;background:linear-gradient(to bottom,rgba(10,11,13,0) 0,rgba(10,11,13,.75) 45%,#0A0B0D 100%)}
     .duas,.objecoes,.quem{grid-template-columns:1fr;gap:28px}
     .fluxo{grid-template-columns:1fr 1fr}
     .fluxo .cx:nth-child(2){border-right:0}
@@ -172,7 +173,9 @@
     .passos{grid-template-columns:1fr}
     .quem .foto{max-width:320px}
     section{padding:48px 0}
-    .fixo{display:block;position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--grafite);border-top:1px solid var(--linha);z-index:9}
+    .fixo{display:block;position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--grafite);border-top:1px solid var(--linha);z-index:9;transform:translateY(110%);transition:transform 220ms var(--ease)}
+    .fixo.mostra{transform:none}
+    body.modal .fixo{display:none}
     .fixo .btn{width:100%;padding:16px 20px;font-size:17px}
   }
   @media (max-width:520px){
@@ -322,12 +325,17 @@
   // Todo botão "Entrar no grupo" abre o popup
   var veu = document.getElementById('veu'), form = document.getElementById('form');
   document.querySelectorAll('a[href="GRUPO_URL"]').forEach(function (a) { a.href = '#cadastro'; a.addEventListener('click', function (e) { e.preventDefault(); abrir(); }); });
-  function abrir() { veu.classList.add('aberto'); document.body.style.overflow = 'hidden'; setTimeout(function () { document.getElementById('f-nome').focus(); }, 50); }
-  function fechar() { veu.classList.remove('aberto'); document.body.style.overflow = ''; }
+  function abrir() { veu.classList.add('aberto'); document.body.classList.add('modal'); document.body.style.overflow = 'hidden'; setTimeout(function () { document.getElementById('f-nome').focus(); }, 50); }
+  function fechar() { veu.classList.remove('aberto'); document.body.classList.remove('modal'); document.body.style.overflow = ''; }
   document.getElementById('fechar').addEventListener('click', fechar);
   veu.addEventListener('click', function (e) { if (e.target === veu) fechar(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fechar(); });
   if (location.hash === '#cadastro') abrir();
+
+  // botão fixo do celular: só depois que a primeira dobra sai da tela
+  var fixo = document.querySelector('.fixo'), hero = document.querySelector('.hero');
+  if (fixo && hero && 'IntersectionObserver' in window) new IntersectionObserver(function (es) { fixo.classList.toggle('mostra', !es[0].isIntersecting); }, { threshold: 0 }).observe(hero);
+  else if (fixo) fixo.classList.add('mostra');
 
   // máscara simples do telefone
   var tel = document.getElementById('f-tel');
