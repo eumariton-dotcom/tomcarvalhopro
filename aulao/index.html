@@ -177,7 +177,7 @@
     section{padding:48px 0}
     .fixo{display:block;position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--grafite);border-top:1px solid var(--linha);z-index:9;transform:translateY(110%);transition:transform 220ms var(--ease)}
     .fixo.mostra{transform:none}
-    body.modal .fixo{display:none}
+    body.popup-aberto .fixo{display:none}
     .fixo .btn{width:100%;padding:16px 20px;font-size:17px}
   }
   @media (max-width:520px){
@@ -350,8 +350,8 @@
   // Todo botão "Entrar no grupo" abre o popup
   var veu = document.getElementById('veu'), form = document.getElementById('form');
   document.querySelectorAll('a[href="GRUPO_URL"]').forEach(function (a) { a.href = '#cadastro'; a.addEventListener('click', function (e) { e.preventDefault(); abrir(); }); });
-  function abrir() { veu.classList.add('aberto'); document.body.classList.add('modal'); document.body.style.overflow = 'hidden'; setTimeout(function () { document.getElementById('f-nome').focus(); }, 50); }
-  function fechar() { veu.classList.remove('aberto'); document.body.classList.remove('modal'); document.body.style.overflow = ''; }
+  function abrir() { veu.classList.add('aberto'); document.body.classList.add('popup-aberto'); document.body.style.overflow = 'hidden'; setTimeout(function () { document.getElementById('f-nome').focus(); }, 50); }
+  function fechar() { veu.classList.remove('aberto'); document.body.classList.remove('popup-aberto'); document.body.style.overflow = ''; }
   document.getElementById('fechar').addEventListener('click', fechar);
   veu.addEventListener('click', function (e) { if (e.target === veu) fechar(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fechar(); });
