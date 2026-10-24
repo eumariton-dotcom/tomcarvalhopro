@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aulão Semanal · Tom Carvalho</title>
+<meta name="description" content="Aula ao vivo de 1 hora, toda semana, gratuita, pra quem vende por reunião e já paga anúncio. Onde o teu lead deveria te conhecer antes de sentar com o teu vendedor.">
+<meta property="og:title" content="Ninguém decide nada grande com quem conheceu ontem.">
+<meta property="og:description" content="Aula ao vivo de 1 hora, toda semana, gratuita. Onde o lead te conhece antes da reunião.">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap">
+<style>
+  /* tom Design System — Sala de Controle: três neutros + um sinal. Sem raio, sem sombra, sem gradiente. */
+  @font-face{font-family:'Archivo';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/Archivo-VF-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:'Archivo';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/Archivo-VF-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/IBMPlexMono-Regular-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/IBMPlexMono-Regular-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/IBMPlexMono-Medium-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/IBMPlexMono-Medium-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:300 600;font-display:swap;src:url('/fonts/IBMPlexSans-VF-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:300 600;font-display:swap;src:url('/fonts/IBMPlexSans-VF-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+  :root{
+    --grafite:#0E1012;--papel:#EEEFEA;--azul:#4D8FFF;--painel:#181B1F;--linha:#2B3036;--nota:#9AA0A6;--grade:#16191C;
+    --display:'Archivo',system-ui,sans-serif;--body:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+    --dur:160ms;--ease:cubic-bezier(.2,0,0,1);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;background:var(--grafite);color:var(--papel);font-family:var(--body);font-weight:400;line-height:1.45;-webkit-font-smoothing:antialiased}
+  body{background:#0A0B0D}
+  :root{--grafite:#0A0B0D}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  p{margin:0}
+  a{color:inherit}
+  .lab{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--nota);line-height:1.3}
+  .lab b{color:var(--papel);font-weight:500}
+  h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,6.2vw,80px);letter-spacing:-.035em;line-height:.98;margin:0;color:var(--papel)}
+  h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.6vw,44px);letter-spacing:-.03em;line-height:1.02;margin:0;color:var(--papel)}
+  h3{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.02em;line-height:1.1;margin:0;color:var(--papel)}
+  .azul{color:var(--azul)}
+  .texto{font-size:17px;line-height:1.55;color:var(--papel)}
+  .texto.nota,.sub{color:var(--nota)}
+  .sub{font-size:18px;line-height:1.5;max-width:560px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:var(--azul);color:var(--grafite);font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.01em;padding:18px 28px;text-decoration:none;border:2px solid var(--azul);transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
+  .btn:hover{background:var(--papel);border-color:var(--papel)}
+  .btn svg{width:20px;height:20px;flex:0 0 auto}
+  .mini{font-size:13px;color:var(--nota);margin-top:12px;line-height:1.5}
+
+  /* barra */
+  .barra{border-bottom:1px solid var(--linha);background:var(--grafite)}
+  .barra .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;height:48px}
+  .barra .itens{display:flex;gap:0;flex-wrap:wrap}
+  .barra .itens span{padding-right:14px;margin-right:14px;border-right:1px solid var(--linha)}
+  .barra .itens span:last-child{border:0;margin:0;padding:0}
+  .sig{font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:-.05em;line-height:1;color:var(--papel);white-space:nowrap;text-decoration:none}
+  .sig i{display:inline-block;width:.23em;height:.23em;background:var(--azul);margin-left:.08em;vertical-align:baseline}
+
+  /* dobra 1 — hero: foto grande, recortada, entrando na página */
+  .hero{position:relative;min-height:min(92vh,860px);display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--linha)}
+  .hero .wrap{position:relative;width:100%;padding-top:56px;padding-bottom:72px}
+  .hero .txt{max-width:600px}
+  .hero h1{margin:18px 0 22px}
+  .hero .acoes{margin-top:30px}
+  .hero-foto{position:absolute;right:0;top:0;bottom:0;width:58%;pointer-events:none}
+  .hero-foto img{width:100%;height:100%;object-fit:contain;object-position:right bottom;display:block;filter:grayscale(1) contrast(1.1) brightness(.92);mix-blend-mode:lighten;-webkit-mask-image:linear-gradient(to top,transparent 0,#000 22%),linear-gradient(to right,transparent 0,#000 18%);mask-image:linear-gradient(to top,transparent 0,#000 22%),linear-gradient(to right,transparent 0,#000 18%);-webkit-mask-composite:source-in;mask-composite:intersect}
+  .hero-foto .tag{position:absolute;right:20px;bottom:24px;background:var(--grafite);border:1px solid var(--linha);padding:10px 14px}
+  .foto{position:relative;aspect-ratio:4/5;background:var(--painel);border:1px solid var(--linha);overflow:hidden}
+  .foto img{width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(1) contrast(1.12) brightness(.95);display:block}
+  .foto .tag{position:absolute;left:0;bottom:0;background:var(--grafite);border-top:1px solid var(--linha);border-right:1px solid var(--linha);padding:10px 14px}
+  .foto:before{content:"";position:absolute;left:-1px;top:-1px;width:22px;height:22px;border-left:4px solid var(--azul);border-top:4px solid var(--azul);z-index:1}
+
+  /* seções: fundo alternado, cabeçalho com número e linha */
+  section{padding:80px 0;border-bottom:1px solid var(--linha)}
+  section.alt{background:var(--painel)}
+  section.alt .card,section.alt .passo,section.alt .fluxo,section.alt .ref .m,section.alt .foto{background:var(--grafite)}
+  .cab{display:flex;align-items:center;gap:18px;margin-bottom:28px}
+  .cab .num{font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:-.02em;color:var(--grafite);background:var(--azul);padding:4px 8px;line-height:1}
+  .cab .lab{white-space:nowrap}
+  .cab:after{content:"";flex:1;height:1px;background:var(--linha)}
+  .duas{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .dor p+p{margin-top:14px}
+
+  /* fluxo 4 caixas */
+  .fluxo{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:28px 0 14px;border:1px solid var(--linha);background:var(--painel)}
+  .fluxo .cx{padding:18px 18px 20px;border-right:1px solid var(--linha);position:relative}
+  .fluxo .cx:last-child{border-right:0}
+  .fluxo .cx .n{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--nota)}
+  .fluxo .cx .t{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.02em;line-height:1.05;margin-top:8px}
+  .fluxo .cx .d{font-size:13px;color:var(--nota);margin-top:8px;line-height:1.45}
+  .fluxo .cx.fim .t{color:var(--azul)}
+  .fluxo .cx:not(:last-child):after{content:"→";position:absolute;right:-9px;top:18px;font-family:var(--mono);color:var(--nota);background:var(--painel);line-height:1;z-index:1}
+
+  /* referência */
+  .ref{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
+  .ref .m{background:var(--painel);border:1px solid var(--linha);padding:16px 18px 14px}
+  .ref .k{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--nota)}
+  .ref .v{font-family:var(--display);font-weight:800;font-size:clamp(30px,3.4vw,44px);letter-spacing:-.03em;line-height:1;margin-top:8px;white-space:nowrap}
+  .ref .m:last-child .v{color:var(--azul)}
+  .fonte{font-size:12px;color:var(--nota);margin-top:12px;line-height:1.5}
+
+  /* checks */
+  .checks{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}
+  .checks li{display:flex;gap:12px;align-items:flex-start;font-size:16px;line-height:1.45}
+  .checks li:before{content:"✓";font-family:var(--mono);color:var(--azul);flex:0 0 auto;line-height:1.45}
+  .checks.x li:before{content:"×";color:var(--nota)}
+  .checks.x li{color:var(--nota)}
+
+  /* cards */
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
+  .card{background:var(--painel);border:1px solid var(--linha);padding:20px 20px 22px;position:relative}
+  .card .n{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--nota)}
+  .card h3{margin:10px 0 10px}
+  .card p{font-size:14px;color:var(--nota);line-height:1.5}
+  .card.bracket:before{content:"";position:absolute;left:-1px;top:-1px;width:18px;height:18px;border-left:4px solid var(--azul);border-top:4px solid var(--azul)}
+  .objecoes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+  .objecoes .card h3{font-size:22px}
+  .objecoes .card p{font-size:15px;color:var(--papel)}
+
+  /* quem conduz */
+  .quem{display:grid;grid-template-columns:minmax(220px,.55fr) 1fr;gap:40px;align-items:center}
+  .quem .foto{aspect-ratio:4/5;max-width:380px}
+  .quem .nome{font-family:var(--display);font-weight:800;font-size:28px;letter-spacing:-.03em;line-height:1;margin:14px 0 14px}
+  .creds{display:grid;gap:0;margin-top:22px;border-top:1px solid var(--linha)}
+  .creds div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--linha);align-items:baseline}
+  .creds .v{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.03em;line-height:1;white-space:nowrap}
+  .creds .d{font-size:14px;color:var(--nota);line-height:1.45}
+
+  /* como participar */
+  .passos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+  .passo{border:1px solid var(--linha);padding:18px 20px 20px;background:var(--painel)}
+  .passo .n{font-family:var(--display);font-weight:800;font-size:40px;letter-spacing:-.04em;line-height:1;color:var(--azul)}
+  .passo p{margin-top:10px;font-size:15px;line-height:1.5}
+  .cta-final{margin-top:32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+
+  footer{padding:28px 0 96px}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  footer .lab a{text-decoration:none}
+
+  /* popup do cadastro */
+  .veu{position:fixed;inset:0;background:rgba(10,11,13,.86);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+  .veu.aberto{display:flex}
+  .modal{width:100%;max-width:520px;background:var(--painel);border:1px solid var(--linha);position:relative;padding:28px 28px 26px}
+  .modal:before{content:"";position:absolute;left:-1px;top:-1px;width:22px;height:22px;border-left:4px solid var(--azul);border-top:4px solid var(--azul)}
+  .modal h2{font-size:30px;margin:10px 0 8px}
+  .modal .sub{font-size:15px;margin-bottom:18px}
+  .fechar{position:absolute;right:12px;top:10px;background:none;border:0;color:var(--nota);font-size:28px;line-height:1;cursor:pointer;padding:6px 10px}
+  .fechar:hover{color:var(--papel)}
+  .campo{margin-top:14px}
+  .campo label{display:block;font-size:14px;font-weight:500;margin-bottom:6px}
+  .campo input{width:100%;border:1px solid var(--linha);background:var(--grafite);color:var(--papel);font-family:var(--body);font-size:17px;padding:13px 14px;outline:none;transition:border-color var(--dur) var(--ease)}
+  .campo input:focus{border-color:var(--azul)}
+  .campo input.erro{border-color:#FF4D4F}
+  .campo small{display:block;color:#FF4D4F;font-size:12px;margin-top:5px;min-height:14px}
+  .modal .btn{width:100%;margin-top:18px}
+  .modal .btn[disabled]{opacity:.6;cursor:wait}
+  .modal .mini{text-align:center}
+  /* botão fixo no celular */
+  .fixo{display:none}
+  @media (max-width:860px){
+    .hero{min-height:0;display:block}
+    .hero .wrap{padding-top:300px;padding-bottom:44px}
+    .hero-foto{width:100%;height:420px;bottom:auto}
+    .hero-foto img{object-fit:cover;object-position:center 15%;-webkit-mask-image:linear-gradient(to top,transparent 0,#000 45%);mask-image:linear-gradient(to top,transparent 0,#000 45%)}
+    .hero-foto .tag{display:none}
+    .hero-foto:after{content:"";position:absolute;left:0;right:0;bottom:0;height:60%;background:linear-gradient(to bottom,rgba(10,11,13,0) 0,rgba(10,11,13,.75) 45%,#0A0B0D 100%)}
+    .duas,.objecoes,.quem{grid-template-columns:1fr;gap:28px}
+    .fluxo{grid-template-columns:1fr 1fr}
+    .fluxo .cx:nth-child(2){border-right:0}
+    .fluxo .cx:nth-child(-n+2){border-bottom:1px solid var(--linha)}
+    .fluxo .cx:not(:last-child):after{display:none}
+    .ref{grid-template-columns:1fr 1fr}
+    .cards{grid-template-columns:1fr 1fr}
+    .passos{grid-template-columns:1fr}
+    .quem .foto{max-width:320px}
+    section{padding:48px 0}
+    .fixo{display:block;position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--grafite);border-top:1px solid var(--linha);z-index:9;transform:translateY(110%);transition:transform 220ms var(--ease)}
+    .fixo.mostra{transform:none}
+    body.popup-aberto .fixo{display:none}
+    .fixo .btn{width:100%;padding:16px 20px;font-size:17px}
+  }
+  @media (max-width:520px){
+    .cards{grid-template-columns:1fr}
+    .barra .itens span:nth-child(n+3){display:none}
+    .creds div{grid-template-columns:1fr;gap:4px}
+  }
+  @media print{@page{size:1366px 4600px;margin:0}html{width:1366px}html,body{background:#0A0B0D;-webkit-print-color-adjust:exact;print-color-adjust:exact}.fixo{display:none!important}.hero{min-height:860px}section,.hero,footer{break-inside:avoid-page}}
+  /* desenhos à mão */
+  .desenho{width:100%;height:auto;display:block;margin:32px 0 0}
+  .desenho.so-mob{display:none}
+  .desenho text{font-family:Caveat,'Brush Script MT',cursive;font-weight:600}
+  .desenho .mono{font-family:var(--mono);font-weight:400;letter-spacing:2px;text-transform:uppercase}
+  .desenho .corpo{font-family:var(--body);font-weight:400}
+  .linha-forte{font-family:var(--display);font-weight:800;font-size:clamp(24px,2.6vw,32px);letter-spacing:-.02em;line-height:1.15;margin-top:36px;max-width:900px}
+  .objecoes .card p{color:var(--nota)}
+  @media (max-width:860px){.desenho.so-desk{display:none}.desenho.so-mob{display:block}}
+  /* painel e casos */
+  .painel{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:32px}
+  .painel .l{background:var(--grafite);border:1px solid var(--linha);padding:20px 0 22px;text-align:center}
+  .painel .l b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(56px,7.5vw,104px);line-height:1;letter-spacing:-.05em;color:var(--azul)}
+  .painel .l span{display:block;font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:-.01em;margin-top:10px}
+  .painel .l i{display:block;font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--nota);margin-top:6px}
+  .painel-linha{font-size:17px;color:var(--nota);margin-top:16px}
+  .casos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+  .casos .m{background:var(--grafite);border:1px solid var(--linha);padding:20px 22px 22px}
+  .casos .k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--nota)}
+  .casos .v{font-family:var(--display);font-weight:800;font-size:clamp(30px,3.2vw,42px);letter-spacing:-.03em;line-height:1;margin-top:10px;white-space:nowrap}
+  .casos .d{font-size:14px;color:var(--nota);margin-top:8px;line-height:1.45}
+  @media (max-width:860px){.painel{grid-template-columns:repeat(3,1fr);gap:10px}.casos{grid-template-columns:1fr}}
+  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;max-width:1000px}
+  .tags span{border:1px solid var(--linha);background:var(--grafite);padding:11px 16px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--papel);line-height:1}
+  .tags span.mais{color:var(--azul);border-color:var(--azul)}
+  .casos-lab{margin-top:44px}
+  @media (max-width:860px){.tags span{padding:10px 12px;font-size:11px}}
+  /* 6 etapas (página B) */
+  .etapas{margin-top:32px;border-top:1px solid var(--linha)}
+  .et{display:grid;grid-template-columns:56px 1fr auto;gap:18px;align-items:start;padding:16px 0;border-bottom:1px solid var(--linha)}
+  .et .en{font-family:Caveat,'Brush Script MT',cursive;font-weight:600;font-size:34px;line-height:1;width:44px;height:44px;border:2px solid var(--papel);border-radius:50%;display:flex;align-items:center;justify-content:center}
+  .et b{display:block;font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.02em;line-height:1.1}
+  .et span{display:block;font-size:14px;color:var(--nota);margin-top:5px;line-height:1.45}
+  .et em{font-family:Caveat,'Brush Script MT',cursive;font-weight:600;font-style:normal;font-size:26px;color:var(--azul);white-space:nowrap;padding-top:6px}
+  .et.on .en,.et.fim .en{border-color:var(--azul);color:var(--azul)}
+  .et.on b,.et.fim b{color:var(--azul)}
+  .et.dim b{color:var(--nota)}
+  .cards.tres{grid-template-columns:repeat(3,1fr)}
+  @media (max-width:860px){.et{grid-template-columns:44px 1fr}.et em{grid-column:2;padding-top:0;font-size:22px;white-space:normal}.cards.tres{grid-template-columns:1fr}}
+</style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1606003097875404');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1606003097875404&ev=PageView&noscript=1" alt=""></noscript>
+<!-- /Meta Pixel -->
+</head>
+<body>
+<!-- Página B do aulão (/aulao-b) · 23/10/2026 · pra receber o tráfego dos anúncios estáticos.
+     O estático é cru, então a página faz o trabalho que o vídeo fazia: a tese (te conheceu ontem), o caminho do lead,
+     as 6 etapas, os números com referência, os casos e a objeção das poucas reuniões. Popup e script são os mesmos da /aulao. -->
+<div class="barra">
+  <div class="wrap">
+    <div class="lab itens"><span>Aula ao vivo</span><span>Toda semana</span><span>Gratuita</span><span>Dia e hora no grupo do WhatsApp</span></div>
+    <a class="sig" href="#topo" aria-label="tom">tom<i></i></a>
+  </div>
+</div>
+
+<!-- DOBRA 1 · HERO -->
+<header class="hero" id="topo">
+  <div class="hero-foto" aria-hidden="true">
+    <img src="/img/tom-bracos.webp" alt="">
+    <span class="lab tag"><b>Tom Carvalho</b> · quem dá a aula</span>
+  </div>
+  <div class="wrap">
+    <div class="txt">
+      <p class="lab">aula ao vivo · 1 hora · toda semana · gratuita</p>
+      <h1>Ninguém decide nada grande com quem conheceu <span class="azul">ontem</span>.</h1>
+      <p class="sub">O teu lead viu um anúncio de 20 segundos, preencheu um formulário e já tá na reunião com o teu vendedor. Toda semana eu mostro, ao vivo e de graça, onde ele deveria te conhecer antes de sentar nessa reunião.</p>
+      <div class="acoes">
+        <a class="btn" href="GRUPO_URL" id="cta1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+          Entrar no grupo do aulão
+        </a>
+        <p class="mini">Pra quem vende por reunião e já paga anúncio. Nome, e-mail e WhatsApp, e o link chega no grupo.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- DOBRA 2 · O CAMINHO DO LEAD -->
+<section id="caminho">
+  <div class="wrap">
+    <div class="cab"><span class="num">01</span><span class="lab">O caminho que o teu lead faz hoje</span></div>
+    <h2 style="max-width:900px">Por que ele confiaria em você?</h2>
+    <div class="fluxo">
+      <div class="cx"><div class="n">01</div><div class="t">Anúncio</div><div class="d">20 segundos. Ele sente a dor.</div></div>
+      <div class="cx"><div class="n">02</div><div class="t">Formulário</div><div class="d">10 segundos. Quer entender o problema.</div></div>
+      <div class="cx"><div class="n">03</div><div class="t">SDR chama</div><div class="d">Minutos ou horas depois. Marca.</div></div>
+      <div class="cx fim"><div class="n">04</div><div class="t">Reunião</div><div class="d">A primeira conversa de verdade com a tua empresa.</div></div>
+    </div>
+    <div class="duas" style="margin-top:36px">
+      <div class="dor">
+        <p class="texto" style="font-size:19px">Em nenhum momento desse caminho ele teve como saber quem você é, como você pensa ou o que você já resolveu pra alguém parecido com ele.</p>
+        <p class="texto" style="font-size:19px">Aí ele senta na reunião. E o teu vendedor tem <b class="azul">1 hora</b> pra se apresentar, explicar o problema, mostrar por que o teu jeito é diferente, responder objeção e pedir uma decisão de alguns mil reais. Pra alguém que ele nunca viu.</p>
+      </div>
+      <div class="dor">
+        <p class="texto" style="font-size:19px">Não fecha. E vem a explicação de sempre: o closer é fraco, ou o lead é desqualificado. Troca o closer, aperta o filtro do formulário.</p>
+        <p class="texto" style="font-size:19px">E a reunião continua convertendo <b class="azul">10%</b>.</p>
+        <p class="fonte">Referência de mercado pra reunião com lead frio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOBRA 3 · AS 6 ETAPAS -->
+<section id="etapas" class="alt">
+  <div class="wrap">
+    <div class="cab"><span class="num">02</span><span class="lab">Por que um lead compra de alguém</span></div>
+    <h2 style="max-width:900px">Toda compra passa por 6 etapas. O teu lead chega na reunião na <span class="azul">2</span>.</h2>
+    <div class="etapas">
+      <div class="et"><span class="en">1</span><div><b>Consciência da dor</b><span>Percebe que tem um problema. É o que o anúncio faz.</span></div></div>
+      <div class="et on"><span class="en">2</span><div><b>Busca por informação</b><span>Vai atrás de entender. É por isso que ele preenche o formulário.</span></div><em>← o teu lead chega aqui</em></div>
+      <div class="et dim"><span class="en">3</span><div><b>Reconhecer as opções</b><span>Descobre que existem soluções e quem resolve.</span></div></div>
+      <div class="et dim"><span class="en">4</span><div><b>Consideração</b><span>Compara. É aqui que ele quer saber quanto custa.</span></div></div>
+      <div class="et dim"><span class="en">5</span><div><b>Escolher</b><span>Decide quem.</span></div></div>
+      <div class="et fim"><span class="en">6</span><div><b>Comprar</b><span>Assina o contrato.</span></div><em>← a venda acontece aqui</em></div>
+    </div>
+    <p class="linha-forte">Da 2 até a 6 fica um abismo. O vendedor tenta atravessar em 1 hora, com um estranho. No funil que eu rodo, a <span class="azul">3, a 4 e a 5</span> acontecem antes da reunião.</p>
+  </div>
+</section>
+
+<!-- DOBRA 4 · OS NÚMEROS -->
+<section id="numeros">
+  <div class="wrap">
+    <div class="cab"><span class="num">03</span><span class="lab">O que muda quando o lead chega te conhecendo</span></div>
+    <h2 style="max-width:900px">O mesmo closer. Metade das reuniões. O dobro de contratos.</h2>
+    <div class="ref">
+      <div class="m"><div class="k">Reunião com lead frio</div><div class="v">10%</div></div>
+      <div class="m"><div class="k">Semana típica, lead frio</div><div class="v">10 → 1</div></div>
+      <div class="m"><div class="k">Semana típica, com a aula na frente</div><div class="v">5 → 2</div></div>
+      <div class="m"><div class="k">Reunião com quem já te conhece</div><div class="v">até 40%</div></div>
+    </div>
+    <p class="fonte">Referência de mercado · funil que eu rodo. 10 → 1 e 5 → 2 são reuniões no mês → contratos.</p>
+    <div class="objecoes">
+      <div class="card bracket"><h3>"Mas assim eu vou fazer menos reunião."</h3><p>Vai. Umas 5 em vez de 10. A pergunta é outra: você prefere fazer mais reunião ou vender mais? Eu fico com menos reunião e mais contrato.</p></div>
+      <div class="card bracket"><h3>"Isso é pro meu segmento?"</h3><p>Franquia fala de investimento, mentoria de resultado, consultoria de diagnóstico. Mas o caminho até a reunião é igual nos três: anúncio, formulário, alguém liga, reunião. O segmento muda, o funil é o mesmo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOBRA 5 · ONDE EU JÁ VI FUNCIONAR -->
+<section id="casos" class="alt">
+  <div class="wrap">
+    <div class="cab"><span class="num">04</span><span class="lab">Onde eu já vi funcionar</span></div>
+    <h2 style="max-width:900px">Negócios que não têm nada a ver um com o outro.</h2>
+    <div class="casos">
+      <div class="m"><div class="k">Uma franquia</div><div class="v">200 → 450 mil</div><div class="d">por mês, com os mesmos 3 closers. Mudamos o funil inteiro: o lead passou a chegar pronto pra etapa 6. Sobrou closer.</div></div>
+      <div class="m"><div class="k">Mentores</div><div class="v">R$ 3 mil a 25 mil</div><div class="d">de ticket. O comercial só falava com quem já tinha aplicado depois da aula. Funcionou em toda a faixa.</div></div>
+      <div class="m"><div class="k">Infoproduto</div><div class="v">só quem viu até o fim</div><div class="d">O comercial só abordava quem tinha consumido o conteúdo inteiro. Menos abordagem, mais contrato.</div></div>
+    </div>
+    <div class="duas" style="margin-top:44px">
+      <div>
+        <h3 style="font-size:24px">É pra você se</h3>
+        <ul class="checks">
+          <li>Vende franquia, mentoria, consultoria, infoproduto ou serviço B2B por reunião</li>
+          <li>Já paga anúncio</li>
+          <li>Tem pelo menos 1 cliente com resultado</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:24px;color:var(--nota)">Ainda não é pra você se</h3>
+        <ul class="checks x">
+          <li>Vende ticket baixo, sem reunião</li>
+          <li>Ainda não tem case</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOBRA 6 · A AULA, QUEM CONDUZ, COMO PARTICIPAR -->
+<section id="quem">
+  <div class="wrap">
+    <div class="cab"><span class="num">05</span><span class="lab">O que você vê na aula</span></div>
+    <div class="cards tres">
+      <div class="card"><div class="n">01</div><h3>Onde o lead te conhece antes</h3><p>O lugar do funil em que a 3, a 4 e a 5 acontecem, e o que o lead precisa ver em cada uma.</p></div>
+      <div class="card"><div class="n">02</div><h3>O que o vendedor para de fazer</h3><p>Apresentar, explicar o básico, responder a mesma dúvida 10 vezes. Ele começa de uma conversa já iniciada.</p></div>
+      <div class="card"><div class="n">03</div><h3>Como fica no teu segmento</h3><p>Franquia, mentoria, consultoria ou serviço: o mesmo desenho, com perguntas no fim.</p></div>
+    </div>
+
+    <div class="quem" style="margin-top:64px">
+      <figure class="foto" style="margin:0">
+        <img src="/img/tom-queixo.webp" alt="Tom Carvalho">
+        <figcaption class="lab tag"><b>tom.</b> · Growth 33</figcaption>
+      </figure>
+      <div>
+        <p class="lab">quem dá a aula</p>
+        <p class="nome">Tom Carvalho</p>
+        <p class="texto">Há mais de 5 anos monto a mesma aula ao vivo pra vender serviço, mentoria, infoproduto e franquia por reunião. E repara: essa aula é o lugar onde você vai me conhecer antes de qualquer conversa comigo.</p>
+        <div class="creds">
+          <div><span class="v">R$ 400 mil</span><span class="d">por semana em anúncio, no funil que operei</span></div>
+          <div><span class="v">7 → 60+</span><span class="d">pessoas na edtech onde fui diretor de operações, R$ 40 mi por ano</span></div>
+          <div><span class="v">200 → 450 mil</span><span class="d">por mês numa franquia, com uma aula na frente da reunião</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="margin-top:64px">Como participar</h2>
+    <div class="passos">
+      <div class="passo"><div class="n">1</div><p>Clica no botão e deixa nome, e-mail e WhatsApp.</p></div>
+      <div class="passo"><div class="n">2</div><p>Entra no grupo. O dia, a hora e o link chegam por lá.</p></div>
+      <div class="passo"><div class="n">3</div><p>1 hora ao vivo, com perguntas no fim. Sem gravação.</p></div>
+    </div>
+    <div class="cta-final">
+      <a class="btn" href="GRUPO_URL" id="cta2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+        Entrar no grupo do aulão
+      </a>
+      <p class="mini" style="margin:0">Gratuito. Sem gravação. O dia e a hora da próxima aula chegam no grupo.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="lab">Tom Carvalho · Growth 33 · <a href="mailto:tom@tomcarvalhopro.com" style="text-transform:none">tom@tomcarvalhopro.com</a> · <a href="/privacidade.html">Política de privacidade</a></span>
+    <a class="sig" href="#topo" aria-label="tom">tom<i></i></a>
+  </div>
+</footer>
+
+<div class="fixo"><a class="btn" href="GRUPO_URL" id="cta3">Entrar no grupo do aulão</a></div>
+
+<!-- POPUP DO CADASTRO: nome, e-mail, WhatsApp → n8n → obrigado.html → grupo -->
+<div class="veu" id="veu" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+  <form class="modal" id="form" novalidate>
+    <button type="button" class="fechar" id="fechar" aria-label="Fechar">×</button>
+    <p class="lab">aulão semanal · cadastro</p>
+    <h2 id="modal-titulo">Me diz quem você é e eu te mando o link.</h2>
+    <p class="sub">Três campos. Depois é só entrar no grupo: o dia e a hora da aula chegam por lá.</p>
+    <div class="campo"><label for="f-nome">Nome</label><input id="f-nome" name="nome" type="text" autocomplete="name" required><small></small></div>
+    <div class="campo"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required><small></small></div>
+    <div class="campo"><label for="f-tel">WhatsApp, com DDD</label><input id="f-tel" name="telefone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(11) 99999-9999" required><small></small></div>
+    <button type="submit" class="btn" id="enviar">Quero o link da aula</button>
+    <p class="mini">Sem spam. Só o aviso da aula e 3 mensagens de preparação.</p>
+  </form>
+</div>
+
+
+<script>
+  var CONFIG = { webhook: 'https://n8n-n8n.mchvfo.easypanel.host/webhook/captura-lead', obrigado: '/obrigado.html' };
+
+  // UTMs do anúncio: vão no cadastro e seguem pra página de obrigado
+  var q = new URLSearchParams(location.search), utm = {};
+  q.forEach(function (v, k) { if (/^utm_/.test(k)) utm[k] = v; });
+
+  // Todo botão "Entrar no grupo" abre o popup
+  var veu = document.getElementById('veu'), form = document.getElementById('form');
+  document.querySelectorAll('a[href="GRUPO_URL"]').forEach(function (a) { a.href = '#cadastro'; a.addEventListener('click', function (e) { e.preventDefault(); abrir(); }); });
+  function abrir() { var barra = window.innerWidth - document.documentElement.clientWidth; veu.classList.add('aberto'); document.body.classList.add('popup-aberto'); document.body.style.overflow = 'hidden'; if (barra > 0) document.body.style.paddingRight = barra + 'px'; setTimeout(function () { document.getElementById('f-nome').focus(); }, 50); }
+  function fechar() { veu.classList.remove('aberto'); document.body.classList.remove('popup-aberto'); document.body.style.overflow = ''; document.body.style.paddingRight = ''; }
+  document.getElementById('fechar').addEventListener('click', fechar);
+  veu.addEventListener('click', function (e) { if (e.target === veu) fechar(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fechar(); });
+  if (location.hash === '#cadastro') abrir();
+
+  // botão fixo do celular: só depois que a primeira dobra sai da tela
+  var fixo = document.querySelector('.fixo'), hero = document.querySelector('.hero');
+  if (fixo && hero && 'IntersectionObserver' in window) new IntersectionObserver(function (es) { fixo.classList.toggle('mostra', !es[0].isIntersecting); }, { threshold: 0 }).observe(hero);
+  else if (fixo) fixo.classList.add('mostra');
+
+  // máscara simples do telefone
+  var tel = document.getElementById('f-tel');
+  tel.addEventListener('input', function () {
+    var d = tel.value.replace(/\D/g, '').slice(0, 11), s = d;
+    if (d.length > 2) s = '(' + d.slice(0, 2) + ') ' + d.slice(2);
+    if (d.length > 7) s = '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
+    tel.value = s;
+  });
+
+  function erro(input, msg) { input.classList.toggle('erro', !!msg); input.nextElementSibling.textContent = msg || ''; return !msg; }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var nome = form.nome.value.trim(), email = form.email.value.trim().toLowerCase(), dig = tel.value.replace(/\D/g, '');
+    var ok = erro(form.nome, nome.length < 2 ? 'Coloca teu nome.' : '');
+    ok = erro(form.email, /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) ? '' : 'Esse e-mail não parece certo.') && ok;
+    ok = erro(tel, dig.length === 10 || dig.length === 11 ? '' : 'WhatsApp com DDD, 10 ou 11 números.') && ok;
+    if (!ok) return;
+    var btn = document.getElementById('enviar'); btn.disabled = true; btn.textContent = 'Enviando…';
+    var dados = { nome: nome, email: email, telefone: '55' + dig, pagina: location.hostname + location.pathname, enviado_em: new Date().toISOString() };
+    Object.keys(utm).forEach(function (k) { dados[k] = utm[k]; });
+    if (!dados.utm_source) dados.utm_source = 'pagina';
+    var corpo = new URLSearchParams(dados).toString();
+    var destino = CONFIG.obrigado + '?n=' + encodeURIComponent(nome) + (Object.keys(utm).length ? '&' + new URLSearchParams(utm).toString() : '');
+    var foi = false, ir = function () { if (foi) return; foi = true; location.href = destino; };
+    try { localStorage.setItem('aulao_cadastro', JSON.stringify({ nome: nome, email: email, quando: dados.enviado_em })); } catch (x) {}
+    try { if (window.fbq) fbq('trackCustom', 'lead_aulao', { pagina: location.pathname, utm_source: dados.utm_source, utm_campaign: dados.utm_campaign || '' }, { eventID: 'lead_' + Date.now() }); } catch (x) {}
+    fetch(CONFIG.webhook, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: corpo, keepalive: true })
+      .then(ir, function () { try { navigator.sendBeacon(CONFIG.webhook, new Blob([corpo], { type: 'application/x-www-form-urlencoded' })); } catch (x) {} ir(); });
+    setTimeout(ir, 2500);
+  });
+</script>
+</body>
+</html>
