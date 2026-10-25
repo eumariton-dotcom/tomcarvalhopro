@@ -220,7 +220,7 @@
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'GT-WPLHGC9Z');
+gtag('config', 'GT-WPLHGC9Z', { allow_enhanced_conversions: true });
 </script>
 <!-- /Google tag -->
 <!-- Meta Pixel -->
@@ -401,6 +401,8 @@ fbq('track', 'PageView');
     var foi = false, ir = function () { if (foi) return; foi = true; location.href = destino; };
     try { localStorage.setItem('aulao_cadastro', JSON.stringify({ nome: nome, email: email, quando: dados.enviado_em })); } catch (x) {}
     try { if (window.fbq) { var ev = 'lead_' + Date.now(); fbq('track', 'Lead', { content_name: 'aulao', pagina: location.pathname }, { eventID: ev }); fbq('trackCustom', 'lead_aulao', { pagina: location.pathname, utm_source: dados.utm_source, utm_campaign: dados.utm_campaign || '' }, { eventID: ev }); } } catch (x) {}
+    // Google Ads · conversão Lead · aulão (conta Mariton YTB) com conversões otimizadas
+    try { if (window.gtag) { gtag('set', 'user_data', { email: email, phone_number: '+55' + dig }); gtag('event', 'conversion', { send_to: 'AW-10934122226/zlR2CLLKr6kdEPLt5d0o', value: 1, currency: 'BRL' }); } } catch (x) {}
     fetch(CONFIG.webhook, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: corpo, keepalive: true })
       .then(ir, function () { try { navigator.sendBeacon(CONFIG.webhook, new Blob([corpo], { type: 'application/x-www-form-urlencoded' })); } catch (x) {} ir(); });
     setTimeout(ir, 2500);
